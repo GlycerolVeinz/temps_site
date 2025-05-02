@@ -5,54 +5,48 @@ import { Copy, Menu, X } from 'lucide-react';
 
 /**
  * Color Theme Configuration
- * 
- * This object centralizes all color-related styling for the application.
- * Similar to a Constants class in Java, it provides a single source of truth
- * for all styling values that might need to be modified.
- * 
- * Current theme: Orange and Brown
  */
 const COLOR_THEME = {
   // Background colors
-  bgPrimary: "bg-stone-950",         // Main background (very dark brown/almost black)
-  bgSecondary: "bg-stone-900",       // Section backgrounds, cards, etc. (dark brown)
-  bgHighlight: "bg-orange-600",      // Active/selected elements (vibrant orange)
+  bgPrimary: "bg-stone-950",         
+  bgSecondary: "bg-stone-900",       
+  bgHighlight: "bg-orange-600",      
 
   // Text colors
-  textPrimary: "text-stone-50",      // Main text (off-white with warm tone)
-  textSecondary: "text-stone-300",   // Secondary, less emphasized text (light brown)
-  textMuted: "text-stone-400",       // Footer, subtle text (medium light brown)
-  textAccent: "text-orange-400",     // Links, emphasized text (bright orange)
-  textSuccess: "text-green-400",     // Success messages (keeping green for clear feedback)
+  textPrimary: "text-stone-50",      
+  textSecondary: "text-stone-300",   
+  textMuted: "text-stone-400",       
+  textAccent: "text-orange-400",     
+  textSuccess: "text-green-400",     
 
   // Border colors
-  borderAccent: "border-orange-500", // Section dividers, highlights (orange borders)
+  borderAccent: "border-orange-500", 
 
   // Hover states
-  hoverBg: "hover:bg-stone-800",     // Background hover (medium-dark brown)
-  hoverBgAccent: "hover:bg-orange-700", // Accent buttons hover (darker orange)
-  hoverUnderline: "hover:underline", // Text hover
+  hoverBg: "hover:bg-stone-800",     
+  hoverBgAccent: "hover:bg-orange-700", 
+  hoverUnderline: "hover:underline", 
 
   // Opacity layers
-  overlayDark: "bg-stone-950 bg-opacity-80", // Dark overlay for text readability (very dark brown)
-  cardBg: "bg-stone-900 bg-opacity-90",      // Semi-transparent card background (dark brown)
+  overlayDark: "bg-stone-950 bg-opacity-80", 
+  cardBg: "bg-stone-900 bg-opacity-90",      
 };
 
 /**
  * Environment Configuration
  * 
- * Similar to application.properties in a Spring Boot application,
- * this object contains all external configuration values.
+ * Updated with placeholder URLs that can be replaced with real image URLs
+ * when deployed to Framer
  */
 const ENV = {
   // Band Information
   BAND_NAME: "Temporary Friends",
   
-  // Image resources
-  BACKGROUND_IMAGE: "/background.jpg",
-  LOGO_IMAGE: "/logo.jpg",
+  // Image resources - using placeholder URLs for development
+  BACKGROUND_IMAGE: "https://placehold.co/1920x1080/333/CCC?text=Background",
+  LOGO_IMAGE: "https://placehold.co/200x200/333/CCC?text=Logo",
   
-  // Band members data
+  // Band members data with placeholder images
   BAND_MEMBERS: [
     {
       firstName: "John",
@@ -60,7 +54,7 @@ const ENV = {
       instrument: "Vocals/Guitar",
       instagram: "johndoe_music",
       contactEmail: "john@temporaryfriends.com",
-      photo: "/john.jpg"
+      photo: "https://placehold.co/400x400/333/CCC?text=John"
     },
     {
       firstName: "Jane",
@@ -68,7 +62,7 @@ const ENV = {
       instrument: "Bass",
       instagram: "janesmith_bass",
       contactEmail: "jane@temporaryfriends.com",
-      photo: "/jane.jpg"
+      photo: "https://placehold.co/400x400/333/CCC?text=Jane"
     },
     {
       firstName: "Mike",
@@ -76,7 +70,7 @@ const ENV = {
       instrument: "Drums",
       instagram: "mikejdrums",
       contactEmail: "mike@temporaryfriends.com",
-      photo: "/mike.jpg"
+      photo: "https://placehold.co/400x400/333/CCC?text=Mike"
     },
     {
       firstName: "Sarah",
@@ -84,7 +78,7 @@ const ENV = {
       instrument: "Keyboards",
       instagram: "sarahw_keys",
       contactEmail: "sarah@temporaryfriends.com",
-      photo: "/sarah.jpg"
+      photo: "https://placehold.co/400x400/333/CCC?text=Sarah"
     }
   ],
   
@@ -95,32 +89,37 @@ const ENV = {
       { 
         id: "spotify",
         title: "Spotify",
-        url: "https://open.spotify.com/artist/temporaryfriends",
-        linkText: "Listen on Spotify" 
+        url: "https://open.spotify.com/artist/your-id-here",
+        linkText: "Listen on Spotify",
+        hasWrongAssociation: true
       },
       { 
         id: "apple",
         title: "Apple Music",
-        url: "https://music.apple.com/artist/temporaryfriends",
-        linkText: "Listen on Apple Music" 
-      },
-      { 
-        id: "youtube",
-        title: "YouTube Music",
-        url: "https://music.youtube.com/channel/temporaryfriends",
-        linkText: "Listen on YouTube Music" 
+        url: "https://music.apple.com/artist/your-id-here",
+        linkText: "Listen on Apple Music",
+        hasWrongAssociation: false
       },
       { 
         id: "bandcamp",
         title: "Bandcamp",
         url: "https://temporaryfriends.bandcamp.com",
-        linkText: "Listen on Bandcamp" 
+        linkText: "Listen on Bandcamp",
+        hasWrongAssociation: false
+      },
+      { 
+        id: "youtube",
+        title: "YouTube Music",
+        url: "https://music.youtube.com/channel/your-id-here",
+        linkText: "Listen on YouTube Music",
+        hasWrongAssociation: true
       },
       { 
         id: "soundcloud",
         title: "SoundCloud",
-        url: "https://soundcloud.com/temporaryfriends",
-        linkText: "Listen on SoundCloud" 
+        url: "https://soundcloud.com/your-id-here",
+        linkText: "Listen on SoundCloud",
+        hasWrongAssociation: false
       }
     ],
     
@@ -141,7 +140,7 @@ const ENV = {
       { 
         id: "facebook",
         title: "Facebook",
-        url: "https://facebook.com/temporaryfriends",
+        url: "https://facebook.com/tempfriends",
         linkText: "Follow us on Facebook" 
       },
       { 
@@ -155,46 +154,30 @@ const ENV = {
 };
 
 /**
- * EP Model
- * 
- * This is analogous to a data model class in Java.
- * Each EP represents an album/EP with its associated metadata.
- * 
- * @typedef {Object} EP
- * @property {string} title - The title of the EP
- * @property {string} cover - URL to the EP's cover image
- * @property {string[]} songs - Array of song titles on the EP
- */
-
-/**
  * EP Repository
  * 
- * Similar to a data repository in Spring, this array contains all EP records.
- * @type {EP[]}
+ * Sample data - will be replaced with live data
  */
 const EPS = [
   {
     title: "First Impressions",
-    cover: "/ep1-cover.jpg",
+    cover: "https://placehold.co/600x600/333/CCC?text=EP1",
     songs: ["Hello World", "Digital Dreams", "Coding All Night", "Backend Blues"]
   },
   {
     title: "Sophomore Surge",
-    cover: "/ep2-cover.jpg",
+    cover: "https://placehold.co/600x600/333/CCC?text=EP2",
     songs: ["Frontend Feelings", "CSS Cascade", "React Revelations", "Final Build"]
   },
   {
     title: "Terminal Velocity",
-    cover: "/ep3-cover.jpg",
+    cover: "https://placehold.co/600x600/333/CCC?text=EP3",
     songs: ["Command Line", "Git Commit", "Deploy Day", "Runtime Error"]
   }
 ];
 
 /**
  * Section Configuration
- * 
- * This data structure defines the navigation sections and their hierarchy.
- * It's generated automatically from the platforms and EPs data.
  */
 const SECTIONS = [
   {
@@ -204,6 +187,11 @@ const SECTIONS = [
       id: platform.id, 
       title: platform.title 
     }))
+  },
+  {
+    id: "shows",
+    title: "Upcoming Shows",
+    subsections: []
   },
   {
     id: "social",
@@ -233,17 +221,51 @@ const SECTIONS = [
 
 /**
  * Platform Link Component
- * 
- * A reusable component that renders a platform link with a copy button.
- * This is similar to creating a helper class with specific functionality in Java.
- * 
- * @param {Object} props - Component properties
- * @param {string} props.id - HTML ID for the element
- * @param {string} props.title - Display title
- * @param {string} props.url - URL to link to
- * @param {string} props.linkText - Text to display for the link
- * @param {function} props.onCopy - Function to call when copy button is clicked
- * @param {string} props.copiedLink - Currently copied link URL
+ */
+function PlatformLink({ id, title, url, linkText, onCopy, copiedLink, hasWrongAssociation }) {
+  return (
+    <div id={id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
+      <h3 className="text-xl font-bold mb-2 flex items-center">
+        {title}
+        {hasWrongAssociation && (
+          <span 
+            className="ml-2 text-yellow-500 text-sm bg-yellow-900 px-2 py-1 rounded-full" 
+            title="This platform may associate our music with other bands with similar names"
+          >
+            ⚠️ Name Clash
+          </span>
+        )}
+      </h3>
+      <div className="flex justify-between items-center">
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
+        >
+          {linkText}
+        </a>
+        <button 
+          onClick={() => onCopy(url)}
+          className={`p-2 bg-gray-700 rounded-md ${COLOR_THEME.hoverBgAccent}`}
+        >
+          <Copy size={16} />
+        </button>
+      </div>
+      {copiedLink === url && (
+        <span className={`${COLOR_THEME.textSuccess} text-sm mt-1 block`}>Link copied!</span>
+      )}
+      {hasWrongAssociation && (
+        <p className="text-xs text-yellow-400 mt-2">
+          Note: This platform may mix our music with other artists using the same name.
+        </p>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Band Member Card Component
  */
 function BandMemberCard({ member }) {
   const memberId = `member-${member.firstName.toLowerCase()}-${member.lastName.toLowerCase()}`;
@@ -273,7 +295,8 @@ function BandMemberCard({ member }) {
         </a>
         <a 
           href={`mailto:${member.contactEmail}`} 
-          className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline} text-center`}
+          className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline} text-center break-words`}
+          title={member.contactEmail}
         >
           {member.contactEmail}
         </a>
@@ -281,40 +304,9 @@ function BandMemberCard({ member }) {
     </div>
   );
 }
-function PlatformLink({ id, title, url, linkText, onCopy, copiedLink }) {
-  return (
-    <div id={id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <div className="flex justify-between items-center">
-        <a 
-          href={url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
-        >
-          {linkText}
-        </a>
-        <button 
-          onClick={() => onCopy(url)}
-          className={`p-2 bg-gray-700 rounded-md ${COLOR_THEME.hoverBgAccent}`}
-        >
-          <Copy size={16} />
-        </button>
-      </div>
-      {copiedLink === url && (
-        <span className={`${COLOR_THEME.textSuccess} text-sm mt-1 block`}>Link copied!</span>
-      )}
-    </div>
-  );
-}
 
 /**
  * EP Card Component
- * 
- * A reusable component for displaying an EP with its cover and songs.
- * 
- * @param {Object} props - Component properties
- * @param {EP} props.ep - The EP object to display
  */
 function EPCard({ ep }) {
   const epId = `ep-${ep.title.toLowerCase().replace(/\s+/g, '-')}`;
@@ -346,9 +338,257 @@ function EPCard({ ep }) {
 }
 
 /**
+ * Upcoming Shows Component
+ * Fetches and displays upcoming show data
+ */
+function UpcomingShows() {
+  const [shows, setShows] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    // For development, we'll use a mock API response
+    // In production, replace with a real API call: 
+    // fetch('https://api.your-backend.com/shows')
+    
+    // Simulate API delay
+    const timer = setTimeout(() => {
+      // Sample data - replace with real API response
+      const mockData = [
+        { 
+          id: 1, 
+          venue: "The Jazz Cafe", 
+          location: "Prague, CZ", 
+          date: "2025-05-15", 
+          time: "8:00 PM",
+          ticketLink: "https://example.com/tickets/1"
+        },
+        { 
+          id: 2, 
+          venue: "Rock Festival", 
+          location: "Berlin, DE", 
+          date: "2025-06-20", 
+          time: "4:30 PM",
+          ticketLink: null
+        },
+        { 
+          id: 3, 
+          venue: "Music Hall", 
+          location: "Vienna, AT", 
+          date: "2025-07-10", 
+          time: "9:00 PM",
+          ticketLink: null
+        }
+      ];
+      
+      setShows(mockData);
+      setLoading(false);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (loading) return <div className="text-center p-4">Loading upcoming shows...</div>;
+  if (error) return <div className="text-center p-4 text-red-500">{error}</div>;
+  
+  return (
+    <div>
+      <SectionHeader title="Upcoming Shows" />
+      {shows.length === 0 ? (
+        <p className="text-center">No upcoming shows at the moment. Check back soon!</p>
+      ) : (
+        <div className="grid grid-cols-1 gap-4">
+          {shows.map(show => (
+            <div key={show.id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
+              <div className="flex justify-between flex-wrap">
+                <div>
+                  <h3 className="text-xl font-bold">{show.venue}</h3>
+                  <p className={COLOR_THEME.textSecondary}>{show.location}</p>
+                </div>
+                <div className="text-right">
+                  <p className="font-bold">{new Date(show.date).toLocaleDateString()}</p>
+                  <p>{show.time}</p>
+                </div>
+              </div>
+              <div className="mt-4">
+                {show.ticketLink ? (
+                  <a 
+                    href={show.ticketLink} 
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgHighlight} ${COLOR_THEME.hoverBgAccent}`}
+                  >
+                    Get Tickets
+                  </a>
+                ) : (
+                  <span className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgSecondary}`}>
+                    Tickets Available At Venue
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * NEW COMPONENT: Spotify Player
+ * Embeds a Spotify player for the latest release
+ */
+function SpotifyPlayer() {
+  const [latestRelease, setLatestRelease] = useState(null);
+  
+  useEffect(() => {
+    // In a real app, you would fetch this from your backend or Spotify API
+    // For now, we'll use a mock response
+    setLatestRelease({
+      embedUrl: "https://open.spotify.com/embed/artist/your-artist-id-here"
+    });
+  }, []);
+  
+  if (!latestRelease) return null;
+  
+  return (
+    <div className="mt-8">
+      <h3 className="text-xl font-bold mb-4">Listen to Our Latest Release</h3>
+      <iframe
+        src={latestRelease.embedUrl}
+        width="100%"
+        height="380"
+        frameBorder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+        className="rounded-lg"
+      ></iframe>
+    </div>
+  );
+}
+
+/**
+ * NEW COMPONENT: Instagram Feed
+ * Displays latest Instagram posts
+ */
+function InstagramFeed() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // In a real app, you would fetch from the Instagram API
+    // For now, we'll use mock data
+    const timer = setTimeout(() => {
+      setPosts([
+        { 
+          id: '1', 
+          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post1', 
+          caption: 'Rehearsing for our upcoming show!' 
+        },
+        { 
+          id: '2', 
+          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post2', 
+          caption: 'New EP dropping next month!' 
+        },
+        { 
+          id: '3', 
+          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post3', 
+          caption: 'Behind the scenes at our photoshoot' 
+        },
+      ]);
+      setLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (loading) return <div className="text-center">Loading Instagram feed...</div>;
+  
+  return (
+    <div className="mt-8">
+      <h3 className="text-xl font-bold mb-4">Latest Instagram Posts</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {posts.map(post => (
+          <div key={post.id} className={`${COLOR_THEME.cardBg} rounded-lg overflow-hidden`}>
+            <img src={post.imageUrl} alt="Instagram post" className="w-full h-64 object-cover" />
+            <div className="p-4">
+              <p className="text-sm">{post.caption}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="text-center mt-4">
+        <a 
+          href="https://instagram.com/temporaryfriends" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`inline-block ${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
+        >
+          See more on Instagram
+        </a>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * NEW COMPONENT: Live Music Feed
+ * Fetches data about latest streams and plays across platforms
+ */
+function LiveMusicFeed() {
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate API call to fetch aggregated music stats
+    const timer = setTimeout(() => {
+      setStats({
+        totalStreams: "42,387",
+        topTrack: "Digital Dreams",
+        topCity: "Prague",
+        monthlyListeners: "5,219",
+        recentGrowth: "+12%"
+      });
+      setLoading(false);
+    }, 1200);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (loading) return <div className="text-center p-4">Loading stats...</div>;
+  if (!stats) return null;
+  
+  return (
+    <div className={`${COLOR_THEME.cardBg} p-6 rounded-lg mt-8`}>
+      <h3 className="text-xl font-bold mb-4">Streaming Stats</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div>
+          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Total Streams</p>
+          <p className="text-xl font-bold">{stats.totalStreams}</p>
+        </div>
+        <div>
+          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Monthly Listeners</p>
+          <p className="text-xl font-bold">{stats.monthlyListeners}</p>
+        </div>
+        <div>
+          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Recent Growth</p>
+          <p className="text-xl font-bold">{stats.recentGrowth}</p>
+        </div>
+        <div>
+          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Top Track</p>
+          <p className="text-xl font-bold">{stats.topTrack}</p>
+        </div>
+        <div>
+          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Top City</p>
+          <p className="text-xl font-bold">{stats.topCity}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Navigation Subsection Component
- * 
- * A separate component for subsections to properly handle state
  */
 function NavigationSubsection({ subsection, onSectionClick }) {
   const [isSubClicked, setIsSubClicked] = useState(false);
@@ -363,7 +603,7 @@ function NavigationSubsection({ subsection, onSectionClick }) {
   return (
     <div
       key={subsection.id}
-      className={`p-2 pl-4 rounded-md cursor-pointer text-sm ${
+      className={`p-2 pl-4 rounded-md cursor-pointer text-sm transition-colors duration-300 ease-in-out ${
         isSubClicked ? COLOR_THEME.bgHighlight : COLOR_THEME.hoverBg
       }`}
       onClick={() => handleSubClick(subsection.id)}
@@ -374,16 +614,18 @@ function NavigationSubsection({ subsection, onSectionClick }) {
 }
 
 /**
- * Navigation Menu Section Component
- * 
- * Renders a single section in the navigation menu with its subsections.
- * 
- * @param {Object} props - Component properties
- * @param {Section} props.section - The section to render
- * @param {string} props.activeSection - ID of the currently active section
- * @param {Object} props.expandedSections - Object tracking which sections are expanded
- * @param {function} props.onSectionClick - Handler for section click
- * @param {function} props.onToggle - Handler for toggle section expansion
+ * Section Header Component
+ */
+function SectionHeader({ title }) {
+  return (
+    <h2 className={`text-3xl font-bold mb-6 border-b ${COLOR_THEME.borderAccent} pb-2`}>
+      {title}
+    </h2>
+  );
+}
+
+/**
+ * Navigation Section Component
  */
 function NavigationSection({ section, activeSection, expandedSections, onSectionClick, onToggle }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -398,7 +640,7 @@ function NavigationSection({ section, activeSection, expandedSections, onSection
   return (
     <div key={section.id} className="mb-2">
       <div 
-        className={`flex items-center justify-between p-2 rounded-md cursor-pointer ${
+        className={`flex items-center justify-between p-2 rounded-md cursor-pointer transition-colors duration-300 ease-in-out ${
           isClicked ? COLOR_THEME.bgHighlight : COLOR_THEME.hoverBg
         }`}
         onClick={() => {
@@ -429,45 +671,27 @@ function NavigationSection({ section, activeSection, expandedSections, onSection
 }
 
 /**
- * Section Header Component
- * 
- * Renders a standardized section header with title and styling.
- * 
- * @param {Object} props - Component properties
- * @param {string} props.title - The section title
- */
-function SectionHeader({ title }) {
-  return (
-    <h2 className={`text-3xl font-bold mb-6 border-b ${COLOR_THEME.borderAccent} pb-2`}>
-      {title}
-    </h2>
-  );
-}
-
-/**
- * Band Website Component
+ * Main Band Website Component
  * 
  * This is the main component that orchestrates all other components.
- * Similar to a controller in Spring MVC that coordinates the application flow.
  */
 export default function BandWebsite() {
-  // State management (similar to fields in a Java class)
+  // State management
   const [activeSection, setActiveSection] = useState(SECTIONS[0].id);
   const [expandedSections, setExpandedSections] = useState({});
   const [copiedLink, setCopiedLink] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+
   // Set mounted state to true when component mounts
   useEffect(() => {
     setMounted(true);
   }, []);
 
+
   /**
    * Scrolls to the specified section and updates active section state.
-   * Similar to a service method in a Java service class.
-   * 
-   * @param {string} sectionId - ID of the section to scroll to
    */
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -481,8 +705,6 @@ export default function BandWebsite() {
 
   /**
    * Toggles the expanded state of a section in the navigation menu.
-   * 
-   * @param {string} sectionId - ID of the section to toggle
    */
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
@@ -493,8 +715,6 @@ export default function BandWebsite() {
 
   /**
    * Copies a URL to the clipboard and provides visual feedback.
-   * 
-   * @param {string} text - Text to copy to clipboard
    */
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -510,7 +730,7 @@ export default function BandWebsite() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Reset copied link after timeout (similar to a cleanup method)
+  // Reset copied link after timeout
   useEffect(() => {
     if (copiedLink) {
       const timer = setTimeout(() => setCopiedLink(""), 2000);
@@ -518,12 +738,18 @@ export default function BandWebsite() {
     }
   }, [copiedLink]);
 
-  // Return null during server rendering
-  if (!mounted && typeof window !== 'undefined') {
+  // Set mounted state to true only after the component mounts
+  // This is a crucial fix for the hydration error
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return null during server-side rendering to prevent hydration mismatch
+  if (!mounted) {
     return null;
   }
 
-  // Main render method (similar to toString() in Java)
+  // Main render method
   return (
     <div className={`min-h-screen ${COLOR_THEME.bgPrimary} ${COLOR_THEME.textPrimary}`}>
       {/* Fixed Header with Menu Toggle */}
@@ -584,7 +810,7 @@ export default function BandWebsite() {
           </div>
         </nav>
 
-        {/* Main Content Area - Pushed to the right when sidebar is open on desktop */}
+        {/* Main Content Area */}
         <main 
           className="flex-1 md:ml-0 p-4 md:p-8 relative min-h-screen"
           style={{
@@ -597,68 +823,75 @@ export default function BandWebsite() {
           <div className={`absolute inset-0 ${COLOR_THEME.overlayDark}`}></div>
           
           {/* Content container */}
-          <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-0 pt-8 md:pt-0">
-            {/* Removed the header section */}
+          <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-0 pt-16 md:pt-0">
+            
+            {/* Streaming Platforms Section */}
+            <section id="streaming" className="mb-10 md:mb-16">
+              <SectionHeader title="Streaming Platforms" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {ENV.PLATFORMS.streaming.map(platform => (
+                  <PlatformLink 
+                    key={platform.id}
+                    id={platform.id}
+                    title={platform.title}
+                    url={platform.url}
+                    linkText={platform.linkText}
+                    onCopy={copyToClipboard}
+                    copiedLink={copiedLink}
+                    hasWrongAssociation={platform.hasWrongAssociation}
+                  />
+                ))}
+              </div>
+              <SpotifyPlayer />
+            </section>
+            
+            {/* Upcoming Shows Section */}
+            <section id="shows" className="mb-10 md:mb-16">
+              <UpcomingShows />
+            </section>
 
-          {/* Streaming Platforms Section */}
-          <section id="streaming" className="mb-10 md:mb-16">
-            <SectionHeader title="Streaming Platforms" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ENV.PLATFORMS.streaming.map(platform => (
-                <PlatformLink 
-                  key={platform.id}
-                  id={platform.id}
-                  title={platform.title}
-                  url={platform.url}
-                  linkText={platform.linkText}
-                  onCopy={copyToClipboard}
-                  copiedLink={copiedLink}
-                />
-              ))}
-            </div>
-          </section>
+            {/* Social Media Section */}
+            <section id="social" className="mb-10 md:mb-16">
+              <SectionHeader title="Social Media" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {ENV.PLATFORMS.social.map(platform => (
+                  <PlatformLink 
+                    key={platform.id}
+                    id={platform.id}
+                    title={platform.title}
+                    url={platform.url}
+                    linkText={platform.linkText}
+                    onCopy={copyToClipboard}
+                    copiedLink={copiedLink}
+                  />
+                ))}
+              </div>
+              <InstagramFeed />
+            </section>
 
-          {/* Social Media Section */}
-          <section id="social" className="mb-10 md:mb-16">
-            <SectionHeader title="Social Media" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ENV.PLATFORMS.social.map(platform => (
-                <PlatformLink 
-                  key={platform.id}
-                  id={platform.id}
-                  title={platform.title}
-                  url={platform.url}
-                  linkText={platform.linkText}
-                  onCopy={copyToClipboard}
-                  copiedLink={copiedLink}
-                />
-              ))}
-            </div>
-          </section>
-
-          {/* EPs Section */}
-          <section id="music" className="mb-10 md:mb-16">
-            <SectionHeader title="Our Music" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {EPS.map((ep) => (
-                <EPCard key={ep.title} ep={ep} />
-              ))}
-            </div>
-          </section>
+            {/* EPs Section */}
+            <section id="music" className="mb-10 md:mb-16">
+              <SectionHeader title="Our Music" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                {EPS.map((ep) => (
+                  <EPCard key={ep.title} ep={ep} />
+                ))}
+              </div>
+            </section>
 
             {/* Band Members Section */}
-          <section id="bandmates" className="mb-10 md:mb-16">
-            <SectionHeader title="Band Members" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-              {ENV.BAND_MEMBERS.map((member) => (
-                <BandMemberCard key={`${member.firstName}-${member.lastName}`} member={member} />
-              ))}
-            </div>
-          </section>
+            <section id="bandmates" className="mb-10 md:mb-16">
+              <SectionHeader title="Band Members" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {ENV.BAND_MEMBERS.map((member) => (
+                  <BandMemberCard key={`${member.firstName}-${member.lastName}`} member={member} />
+                ))}
+              </div>
+            </section>
 
-          <footer className={`text-center ${COLOR_THEME.textMuted} py-4 md:py-6`}>
-            <p>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</p>
-          </footer>
+            <footer className={`text-center ${COLOR_THEME.textMuted} py-4 md:py-6`}>
+              <p>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</p>
+            </footer>
           </div>
         </main>
       </div>
