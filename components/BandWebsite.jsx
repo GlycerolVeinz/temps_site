@@ -147,6 +147,37 @@ const ENV = {
         url: "https://tiktok.com/@temporaryfriends",
         linkText: "Follow us on TikTok" 
       }
+    ],
+    
+    // Upcoming shows - extracted to match the social media structure
+    shows: [
+      { 
+        id: 1, 
+        venue: "The Jazz Cafe", 
+        location: "Prague, CZ", 
+        date: "2025-05-15", 
+        time: "8:00 PM",
+        ticketLink: "https://example.com/tickets/1",
+        googleMapsUrl: "https://maps.google.com/?q=The+Jazz+Cafe+Prague"
+      },
+      { 
+        id: 2, 
+        venue: "Rock Festival", 
+        location: "Berlin, DE", 
+        date: "2025-06-20", 
+        time: "4:30 PM",
+        ticketLink: null,
+        googleMapsUrl: "https://maps.google.com/?q=Rock+Festival+Berlin"
+      },
+      { 
+        id: 3, 
+        venue: "Music Hall", 
+        location: "Vienna, AT", 
+        date: "2025-07-10", 
+        time: "9:00 PM",
+        ticketLink: null,
+        googleMapsUrl: "https://maps.google.com/?q=Music+Hall+Vienna"
+      }
     ]
   }
 };
@@ -317,192 +348,86 @@ function EPCard({ ep }) {
 }
 
 /**
- * Upcoming Shows Component
+ * Show Card Component for Upcoming Shows
  */
-function UpcomingShows() {
-  const [shows, setShows] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    // For development, we'll use a mock API response
-    // In production, replace with a real API call: 
-    // fetch('https://api.your-backend.com/shows')
-    
-    // Simulate API delay
-    const timer = setTimeout(() => {
-      // Sample data - replace with real API response
-      const mockData = [
-        { 
-          id: 1, 
-          venue: "The Jazz Cafe", 
-          location: "Prague, CZ", 
-          date: "2025-05-15", 
-          time: "8:00 PM",
-          ticketLink: "https://example.com/tickets/1"
-        },
-        { 
-          id: 2, 
-          venue: "Rock Festival", 
-          location: "Berlin, DE", 
-          date: "2025-06-20", 
-          time: "4:30 PM",
-          ticketLink: null
-        },
-        { 
-          id: 3, 
-          venue: "Music Hall", 
-          location: "Vienna, AT", 
-          date: "2025-07-10", 
-          time: "9:00 PM",
-          ticketLink: null
-        }
-      ];
-      
-      setShows(mockData);
-      setLoading(false);
-    }, 800);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  if (loading) return <div className="text-center p-4">Loading upcoming shows...</div>;
-  if (error) return <div className="text-center p-4 text-red-500">{error}</div>;
-  
+function ShowCard({ show, onCopy, copiedLink }) {
   return (
-    <div>
-      <SectionHeader title="Upcoming Shows" />
-      {shows.length === 0 ? (
-        <p className="text-center">No upcoming shows at the moment. Check back soon!</p>
-      ) : (
-        <div className="grid grid-cols-1 gap-4">
-          {shows.map(show => (
-            <div key={show.id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
-              <div className="flex justify-between flex-wrap">
-                <div>
-                  <h3 className="text-xl font-bold">{show.venue}</h3>
-                  <p className={COLOR_THEME.textSecondary}>{show.location}</p>
-                </div>
-                <div className="text-right">
-                  <p className="font-bold">{new Date(show.date).toLocaleDateString()}</p>
-                  <p>{show.time}</p>
-                </div>
-              </div>
-              <div className="mt-4">
-                {show.ticketLink ? (
-                  <a 
-                    href={show.ticketLink} 
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgHighlight} ${COLOR_THEME.hoverBgAccent}`}
-                  >
-                    Get Tickets
-                  </a>
-                ) : (
-                  <span className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgSecondary}`}>
-                    Tickets Available At Venue
-                  </span>
-                )}
-              </div>
-            </div>
-          ))}
+    <div key={show.id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
+      <div className="flex justify-between flex-wrap">
+        <div>
+          <h3 className="text-xl font-bold">
+            <a 
+              href={show.googleMapsUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
+              title="Open in Google Maps"
+            >
+              {show.venue}
+            </a>
+          </h3>
+          <p className={COLOR_THEME.textSecondary}>{show.location}</p>
         </div>
+        <div className="text-right">
+          <p className="font-bold">{new Date(show.date).toLocaleDateString()}</p>
+          <p>{show.time}</p>
+        </div>
+      </div>
+      <div className="mt-4 flex justify-between items-center">
+        {show.ticketLink ? (
+          <a 
+            href={show.ticketLink} 
+            target="_blank"
+            rel="noopener noreferrer" 
+            className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgHighlight} ${COLOR_THEME.hoverBgAccent}`}
+          >
+            Get Tickets
+          </a>
+        ) : (
+          <span className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgSecondary}`}>
+            Tickets Available At Venue
+          </span>
+        )}
+        <button 
+          onClick={() => onCopy(show.googleMapsUrl)}
+          className={`p-2 bg-gray-700 rounded-md ${COLOR_THEME.hoverBgAccent} ml-2`}
+          title="Copy map link"
+        >
+          <Copy size={16} />
+        </button>
+      </div>
+      {copiedLink === show.googleMapsUrl && (
+        <span className={`${COLOR_THEME.textSuccess} text-sm mt-1 block`}>Map link copied!</span>
       )}
     </div>
   );
 }
 
 /**
- * Spotify Player Component
+ * Upcoming Shows Component (updated to use extracted data structure)
  */
-function SpotifyPlayer() {
-  const [latestRelease, setLatestRelease] = useState(null);
-  
-  useEffect(() => {
-    // In a real app, you would fetch this from your backend or Spotify API
-    // For now, we'll use a mock response
-    setLatestRelease({
-      embedUrl: "https://open.spotify.com/embed/artist/your-artist-id-here"
-    });
-  }, []);
-  
-  if (!latestRelease) return null;
-  
-  return (
-    <div className="mt-8">
-      <h3 className="text-xl font-bold mb-4">Listen to Our Latest Release</h3>
-      <iframe
-        src={latestRelease.embedUrl}
-        width="100%"
-        height="380"
-        frameBorder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
-        className="rounded-lg"
-      ></iframe>
-    </div>
-  );
-}
-
-/**
- * Instagram Feed Component
- * Keeping the component code but not using it in the main UI
- */
-function InstagramFeed() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    // In a real app, you would fetch from the Instagram API
-    // For now, we'll use mock data
-    const timer = setTimeout(() => {
-      setPosts([
-        { 
-          id: '1', 
-          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post1', 
-          caption: 'Rehearsing for our upcoming show!' 
-        },
-        { 
-          id: '2', 
-          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post2', 
-          caption: 'New EP dropping next month!' 
-        },
-        { 
-          id: '3', 
-          imageUrl: 'https://placehold.co/600x600/333/CCC?text=Post3', 
-          caption: 'Behind the scenes at our photoshoot' 
-        },
-      ]);
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  if (loading) return <div className="text-center">Loading Instagram feed...</div>;
-  
-  return (
-    <div className="mt-8">
-      <h3 className="text-xl font-bold mb-4">Latest Instagram Posts</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {posts.map(post => (
-          <div key={post.id} className={`${COLOR_THEME.cardBg} rounded-lg overflow-hidden`}>
-            <img src={post.imageUrl} alt="Instagram post" className="w-full h-64 object-cover" />
-            <div className="p-4">
-              <p className="text-sm">{post.caption}</p>
-            </div>
-          </div>
-        ))}
+function UpcomingShows({ shows, onCopy, copiedLink }) {
+  if (!shows || shows.length === 0) {
+    return (
+      <div>
+        <SectionHeader title="Upcoming Shows" />
+        <p className="text-center">No upcoming shows at the moment. Check back soon!</p>
       </div>
-      <div className="text-center mt-4">
-        <a 
-          href="https://instagram.com/temporaryfriends" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={`inline-block ${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
-        >
-          See more on Instagram
-        </a>
+    );
+  }
+  
+  return (
+    <div>
+      <SectionHeader title="Upcoming Shows" />
+      <div className="grid grid-cols-1 gap-4">
+        {shows.map(show => (
+          <ShowCard 
+            key={show.id} 
+            show={show} 
+            onCopy={onCopy} 
+            copiedLink={copiedLink} 
+          />
+        ))}
       </div>
     </div>
   );
@@ -617,11 +542,17 @@ export default function BandWebsite() {
         aria-label="Open menu"
         title="Menu"
       >
-        <img 
-          src={ENV.MENU_LOGO} 
-          alt="Menu" 
-          className="w-12 h-12 object-cover"
-        />
+        <div className="w-12 h-12 bg-orange-600 flex items-center justify-center">
+          {ENV.MENU_LOGO ? (
+            <img 
+              src={ENV.MENU_LOGO} 
+              alt="Menu" 
+              className="w-12 h-12 object-cover"
+            />
+          ) : (
+            <Menu size={24} className="text-white" />
+          )}
+        </div>
       </button>
 
       {/* Navigation Menu */}
@@ -637,12 +568,25 @@ export default function BandWebsite() {
       
       {/* Landing Page Section */}
       <section id="landing" ref={landingRef} className="h-screen relative">
-        <Image 
-          src={ENV.BACKGROUND_IMAGE}
-          alt="Band Photo"
-          layout="fill"
-          className="w-full h-full object-cover absolute inset-0 z-0"
-        />
+        {/* Fallback background color if image doesn't load */}
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-900 to-stone-950"></div>
+        
+        {/* Background image with error handling */}
+        {ENV.BACKGROUND_IMAGE && (
+          <div 
+            className="absolute inset-0 bg-center bg-cover z-0"
+            style={{ 
+              backgroundImage: `url(${ENV.BACKGROUND_IMAGE})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          ></div>
+        )}
+        
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+        
+        {/* Main content */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-white text-center px-4">
             {ENV.BAND_NAME}
@@ -669,12 +613,15 @@ export default function BandWebsite() {
               />
             ))}
           </div>
-          <SpotifyPlayer />
         </section>
         
         {/* Upcoming Shows Section */}
         <section id="shows" className="my-16">
-          <UpcomingShows />
+          <UpcomingShows 
+            shows={ENV.PLATFORMS.shows} 
+            onCopy={copyToClipboard}
+            copiedLink={copiedLink}
+          />
         </section>
         
         {/* Social Media Section */}
