@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Copy, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 /**
  * Color Theme Configuration
@@ -34,17 +35,14 @@ const COLOR_THEME = {
 
 /**
  * Environment Configuration
- * 
- * Updated with placeholder URLs that can be replaced with real image URLs
- * when deployed to Framer
  */
 const ENV = {
   // Band Information
   BAND_NAME: "Temporary Friends",
   
-  // Image resources - using placeholder URLs for development
-  BACKGROUND_IMAGE: "https://placehold.co/1920x1080/333/CCC?text=Background",
-  LOGO_IMAGE: "https://placehold.co/200x200/333/CCC?text=Logo",
+  // Image resources - using absolute paths from the root
+  BACKGROUND_IMAGE: "/TempsBackground.jpg", // Landing page background
+  MENU_LOGO: "/TempsLogo.svg", // Menu button logo
   
   // Band members data with placeholder images
   BAND_MEMBERS: [
@@ -155,8 +153,6 @@ const ENV = {
 
 /**
  * EP Repository
- * 
- * Sample data - will be replaced with live data
  */
 const EPS = [
   {
@@ -182,40 +178,23 @@ const EPS = [
 const SECTIONS = [
   {
     id: "streaming",
-    title: "Streaming Platforms",
-    subsections: ENV.PLATFORMS.streaming.map(platform => ({ 
-      id: platform.id, 
-      title: platform.title 
-    }))
+    title: "Streaming Platforms"
   },
   {
     id: "shows",
-    title: "Upcoming Shows",
-    subsections: []
+    title: "Upcoming Shows"
   },
   {
     id: "social",
-    title: "Social Media",
-    subsections: ENV.PLATFORMS.social.map(platform => ({ 
-      id: platform.id, 
-      title: platform.title 
-    }))
+    title: "Social Media"
   },
   {
     id: "music",
-    title: "Our Music",
-    subsections: EPS.map(ep => ({ 
-      id: `ep-${ep.title.toLowerCase().replace(/\s+/g, '-')}`, 
-      title: ep.title 
-    }))
+    title: "Our Music"
   },
   {
     id: "bandmates",
-    title: "Band Members",
-    subsections: ENV.BAND_MEMBERS.map(member => ({
-      id: `member-${member.firstName.toLowerCase()}-${member.lastName.toLowerCase()}`,
-      title: `${member.firstName} ${member.lastName}`
-    }))
+    title: "Band Members"
   }
 ];
 
@@ -339,7 +318,6 @@ function EPCard({ ep }) {
 
 /**
  * Upcoming Shows Component
- * Fetches and displays upcoming show data
  */
 function UpcomingShows() {
   const [shows, setShows] = useState([]);
@@ -435,8 +413,7 @@ function UpcomingShows() {
 }
 
 /**
- * NEW COMPONENT: Spotify Player
- * Embeds a Spotify player for the latest release
+ * Spotify Player Component
  */
 function SpotifyPlayer() {
   const [latestRelease, setLatestRelease] = useState(null);
@@ -468,8 +445,8 @@ function SpotifyPlayer() {
 }
 
 /**
- * NEW COMPONENT: Instagram Feed
- * Displays latest Instagram posts
+ * Instagram Feed Component
+ * Keeping the component code but not using it in the main UI
  */
 function InstagramFeed() {
   const [posts, setPosts] = useState([]);
@@ -532,88 +509,6 @@ function InstagramFeed() {
 }
 
 /**
- * NEW COMPONENT: Live Music Feed
- * Fetches data about latest streams and plays across platforms
- */
-function LiveMusicFeed() {
-  const [stats, setStats] = useState(null);
-  const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    // Simulate API call to fetch aggregated music stats
-    const timer = setTimeout(() => {
-      setStats({
-        totalStreams: "42,387",
-        topTrack: "Digital Dreams",
-        topCity: "Prague",
-        monthlyListeners: "5,219",
-        recentGrowth: "+12%"
-      });
-      setLoading(false);
-    }, 1200);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  if (loading) return <div className="text-center p-4">Loading stats...</div>;
-  if (!stats) return null;
-  
-  return (
-    <div className={`${COLOR_THEME.cardBg} p-6 rounded-lg mt-8`}>
-      <h3 className="text-xl font-bold mb-4">Streaming Stats</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        <div>
-          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Total Streams</p>
-          <p className="text-xl font-bold">{stats.totalStreams}</p>
-        </div>
-        <div>
-          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Monthly Listeners</p>
-          <p className="text-xl font-bold">{stats.monthlyListeners}</p>
-        </div>
-        <div>
-          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Recent Growth</p>
-          <p className="text-xl font-bold">{stats.recentGrowth}</p>
-        </div>
-        <div>
-          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Top Track</p>
-          <p className="text-xl font-bold">{stats.topTrack}</p>
-        </div>
-        <div>
-          <p className={`${COLOR_THEME.textSecondary} text-sm`}>Top City</p>
-          <p className="text-xl font-bold">{stats.topCity}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Navigation Subsection Component
- */
-function NavigationSubsection({ subsection, onSectionClick }) {
-  const [isSubClicked, setIsSubClicked] = useState(false);
-  
-  const handleSubClick = (subsectionId) => {
-    onSectionClick(subsectionId);
-    // Flash the highlight effect
-    setIsSubClicked(true);
-    setTimeout(() => setIsSubClicked(false), 800); // Reset after 800ms
-  };
-  
-  return (
-    <div
-      key={subsection.id}
-      className={`p-2 pl-4 rounded-md cursor-pointer text-sm transition-colors duration-300 ease-in-out ${
-        isSubClicked ? COLOR_THEME.bgHighlight : COLOR_THEME.hoverBg
-      }`}
-      onClick={() => handleSubClick(subsection.id)}
-    >
-      {subsection.title}
-    </div>
-  );
-}
-
-/**
  * Section Header Component
  */
 function SectionHeader({ title }) {
@@ -625,97 +520,80 @@ function SectionHeader({ title }) {
 }
 
 /**
- * Navigation Section Component
+ * Navigation Menu Component
  */
-function NavigationSection({ section, activeSection, expandedSections, onSectionClick, onToggle }) {
-  const [isClicked, setIsClicked] = useState(false);
-  
-  const handleClick = (sectionId) => {
-    onSectionClick(sectionId);
-    // Flash the highlight effect
-    setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 800); // Reset after 800ms
-  };
-  
+function NavigationMenu({ sections, onNavigate, isOpen, onClose }) {
   return (
-    <div key={section.id} className="mb-2">
-      <div 
-        className={`flex items-center justify-between p-2 rounded-md cursor-pointer transition-colors duration-300 ease-in-out ${
-          isClicked ? COLOR_THEME.bgHighlight : COLOR_THEME.hoverBg
-        }`}
-        onClick={() => {
-          handleClick(section.id);
-          onToggle(section.id);
-        }}
-      >
-        <span>{section.title}</span>
-        {section.subsections && section.subsections.length > 0 && (
-          <span className="text-xs">{expandedSections[section.id] ? '▼' : '▶'}</span>
-        )}
+    <div 
+      className={`
+        fixed top-0 right-0 bottom-0 w-64 z-50 transform 
+        ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+        transition-transform duration-300 ease-in-out
+        ${COLOR_THEME.bgSecondary} p-6
+      `}
+    >
+      <div className="flex justify-end mb-6">
+        <button 
+          onClick={onClose}
+          className="p-2 rounded-md bg-gray-800 hover:bg-gray-700"
+        >
+          <X size={24} />
+        </button>
       </div>
-      
-      {/* Subsections */}
-      {expandedSections[section.id] && section.subsections && (
-        <div className="ml-4 mt-1 space-y-1">
-          {section.subsections.map((subsection) => (
-            <NavigationSubsection 
-              key={subsection.id}
-              subsection={subsection}
-              onSectionClick={onSectionClick}
-            />
-          ))}
-        </div>
-      )}
+      <div className="space-y-4">
+        {sections.map(section => (
+          <div 
+            key={section.id}
+            className={`p-2 cursor-pointer ${COLOR_THEME.hoverBg} rounded-md`}
+            onClick={() => onNavigate(section.id)}
+          >
+            {section.title}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 /**
  * Main Band Website Component
- * 
- * This is the main component that orchestrates all other components.
  */
 export default function BandWebsite() {
-  // State management
-  const [activeSection, setActiveSection] = useState(SECTIONS[0].id);
-  const [expandedSections, setExpandedSections] = useState({});
-  const [copiedLink, setCopiedLink] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-
-
+  const [copiedLink, setCopiedLink] = useState("");
+  const landingRef = useRef(null);
+  
   // Set mounted state to true when component mounts
   useEffect(() => {
     setMounted(true);
+    
+    // Add suppressHydrationWarning to body for NextJS
+    if (typeof document !== 'undefined') {
+      document.body.setAttribute('suppresshydrationwarning', 'true');
+    }
   }, []);
 
-
-  /**
-   * Scrolls to the specified section and updates active section state.
-   */
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      // Close mobile menu when a section is selected
-      setMobileMenuOpen(false);
+  // Handle navigation
+  const handleNavigate = (sectionId) => {
+    if (sectionId === 'landing') {
+      // Scroll to top for landing section
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Scroll to specific section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetPosition = element.offsetTop - 16;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
+    setMenuOpen(false);
   };
 
-  /**
-   * Toggles the expanded state of a section in the navigation menu.
-   */
-  const toggleSection = (sectionId) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }));
-  };
-
-  /**
-   * Copies a URL to the clipboard and provides visual feedback.
-   */
+  // Copy to clipboard with feedback
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
       .then(() => {
@@ -724,176 +602,122 @@ export default function BandWebsite() {
       })
       .catch(err => console.error('Failed to copy: ', err));
   };
-
-  // Toggle mobile menu
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  // Reset copied link after timeout
-  useEffect(() => {
-    if (copiedLink) {
-      const timer = setTimeout(() => setCopiedLink(""), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [copiedLink]);
-
-  // Set mounted state to true only after the component mounts
-  // This is a crucial fix for the hydration error
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  
   // Return null during server-side rendering to prevent hydration mismatch
   if (!mounted) {
     return null;
   }
 
-  // Main render method
   return (
-    <div className={`min-h-screen ${COLOR_THEME.bgPrimary} ${COLOR_THEME.textPrimary}`}>
-      {/* Fixed Header with Menu Toggle */}
-      <div className="md:hidden fixed top-0 left-0 right-0 p-4 flex justify-between items-center z-30 bg-black">
-        <h1 className="text-xl font-bold">{ENV.BAND_NAME}</h1>
-        <button 
-          onClick={toggleMobileMenu}
-          className={`p-2 rounded-md focus:outline-none ${COLOR_THEME.bgHighlight}`}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+    <div className={`${COLOR_THEME.bgPrimary} ${COLOR_THEME.textPrimary}`}>
+      {/* Menu Toggle Button using Band Logo */}
+      <button
+        onClick={() => setMenuOpen(true)}
+        className="fixed top-4 right-4 z-50 rounded-full shadow-lg overflow-hidden"
+        aria-label="Open menu"
+        title="Menu"
+      >
+        <img 
+          src={ENV.MENU_LOGO} 
+          alt="Menu" 
+          className="w-12 h-12 object-cover"
+        />
+      </button>
 
-      <div className="flex flex-col md:flex-row min-h-screen">
-        {/* Overlay that appears behind the mobile menu when open */}
-        {mobileMenuOpen && (
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-        )}
-
-        {/* Navigation Sidebar - Responsive for mobile with slide-out */}
-        <nav className={`
-          fixed md:relative 
-          top-14 md:top-0
-          left-0 bottom-0
-          w-64 
-          ${COLOR_THEME.bgSecondary} 
-          p-4 
-          overflow-y-auto
-          z-20
-          transition-all duration-300 ease-in-out
-          transform ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0
-          md:sticky md:self-start md:h-screen
-        `}>
-          <div className="flex items-center justify-center mb-8">
-            <img 
-              src={ENV.LOGO_IMAGE} 
-              alt={`${ENV.BAND_NAME} Logo`} 
-              className="h-20 w-20 rounded-full"
-            />
-          </div>
-          <h1 className="text-2xl font-bold text-center mb-8 hidden md:block">{ENV.BAND_NAME}</h1>
-          
-          {/* Navigation Tree */}
-          <div className="space-y-4">
-            {SECTIONS.map((section) => (
-              <NavigationSection 
-                key={section.id}
-                section={section}
-                activeSection={activeSection}
-                expandedSections={expandedSections}
-                onSectionClick={scrollToSection}
-                onToggle={toggleSection}
+      {/* Navigation Menu */}
+      <NavigationMenu 
+        sections={[
+          { id: 'landing', title: 'Home' },
+          ...SECTIONS
+        ]}
+        onNavigate={handleNavigate}
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
+      
+      {/* Landing Page Section */}
+      <section id="landing" ref={landingRef} className="h-screen relative">
+        <Image 
+          src={ENV.BACKGROUND_IMAGE}
+          alt="Band Photo"
+          layout="fill"
+          className="w-full h-full object-cover absolute inset-0 z-0"
+        />
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <h1 className="text-4xl md:text-6xl font-bold text-white text-center px-4">
+            {ENV.BAND_NAME}
+          </h1>
+        </div>
+      </section>
+      
+      {/* Content Sections */}
+      <div className="container mx-auto p-4">
+        {/* Streaming Platforms Section */}
+        <section id="streaming" className="my-16">
+          <SectionHeader title="Streaming Platforms" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {ENV.PLATFORMS.streaming.map(platform => (
+              <PlatformLink 
+                key={platform.id}
+                id={platform.id}
+                title={platform.title}
+                url={platform.url}
+                linkText={platform.linkText}
+                onCopy={copyToClipboard}
+                copiedLink={copiedLink}
+                hasWrongAssociation={platform.hasWrongAssociation}
               />
             ))}
           </div>
-        </nav>
-
-        {/* Main Content Area */}
-        <main 
-          className="flex-1 md:ml-0 p-4 md:p-8 relative min-h-screen"
-          style={{
-            backgroundImage: `url(${ENV.BACKGROUND_IMAGE})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        >
-          {/* Overlay for better text readability */}
-          <div className={`absolute inset-0 ${COLOR_THEME.overlayDark}`}></div>
-          
-          {/* Content container */}
-          <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-0 pt-16 md:pt-0">
-            
-            {/* Streaming Platforms Section */}
-            <section id="streaming" className="mb-10 md:mb-16">
-              <SectionHeader title="Streaming Platforms" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {ENV.PLATFORMS.streaming.map(platform => (
-                  <PlatformLink 
-                    key={platform.id}
-                    id={platform.id}
-                    title={platform.title}
-                    url={platform.url}
-                    linkText={platform.linkText}
-                    onCopy={copyToClipboard}
-                    copiedLink={copiedLink}
-                    hasWrongAssociation={platform.hasWrongAssociation}
-                  />
-                ))}
-              </div>
-              <SpotifyPlayer />
-            </section>
-            
-            {/* Upcoming Shows Section */}
-            <section id="shows" className="mb-10 md:mb-16">
-              <UpcomingShows />
-            </section>
-
-            {/* Social Media Section */}
-            <section id="social" className="mb-10 md:mb-16">
-              <SectionHeader title="Social Media" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {ENV.PLATFORMS.social.map(platform => (
-                  <PlatformLink 
-                    key={platform.id}
-                    id={platform.id}
-                    title={platform.title}
-                    url={platform.url}
-                    linkText={platform.linkText}
-                    onCopy={copyToClipboard}
-                    copiedLink={copiedLink}
-                  />
-                ))}
-              </div>
-              <InstagramFeed />
-            </section>
-
-            {/* EPs Section */}
-            <section id="music" className="mb-10 md:mb-16">
-              <SectionHeader title="Our Music" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-                {EPS.map((ep) => (
-                  <EPCard key={ep.title} ep={ep} />
-                ))}
-              </div>
-            </section>
-
-            {/* Band Members Section */}
-            <section id="bandmates" className="mb-10 md:mb-16">
-              <SectionHeader title="Band Members" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                {ENV.BAND_MEMBERS.map((member) => (
-                  <BandMemberCard key={`${member.firstName}-${member.lastName}`} member={member} />
-                ))}
-              </div>
-            </section>
-
-            <footer className={`text-center ${COLOR_THEME.textMuted} py-4 md:py-6`}>
-              <p>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</p>
-            </footer>
+          <SpotifyPlayer />
+        </section>
+        
+        {/* Upcoming Shows Section */}
+        <section id="shows" className="my-16">
+          <UpcomingShows />
+        </section>
+        
+        {/* Social Media Section */}
+        <section id="social" className="my-16">
+          <SectionHeader title="Social Media" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {ENV.PLATFORMS.social.map(platform => (
+              <PlatformLink 
+                key={platform.id}
+                id={platform.id}
+                title={platform.title}
+                url={platform.url}
+                linkText={platform.linkText}
+                onCopy={copyToClipboard}
+                copiedLink={copiedLink}
+              />
+            ))}
           </div>
-        </main>
+        </section>
+        
+        {/* EPs Section */}
+        <section id="music" className="my-16">
+          <SectionHeader title="Our Music" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {EPS.map((ep) => (
+              <EPCard key={ep.title} ep={ep} />
+            ))}
+          </div>
+        </section>
+        
+        {/* Band Members Section */}
+        <section id="bandmates" className="my-16">
+          <SectionHeader title="Band Members" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ENV.BAND_MEMBERS.map((member) => (
+              <BandMemberCard key={`${member.firstName}-${member.lastName}`} member={member} />
+            ))}
+          </div>
+        </section>
+        
+        <footer className="text-center py-6">
+          <p>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   );
