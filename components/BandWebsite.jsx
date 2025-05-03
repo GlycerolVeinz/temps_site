@@ -47,36 +47,36 @@ const ENV = {
   // Band members data with placeholder images
   BAND_MEMBERS: [
     {
-      firstName: "John",
-      lastName: "Doe",
+      firstName: "Matouš",
+      lastName: "Kostkan",
       instrument: "Vocals/Guitar",
-      instagram: "johndoe_music",
-      contactEmail: "john@temporaryfriends.com",
-      photo: "https://placehold.co/400x400/333/CCC?text=John"
+      instagram: "m_kolecko",
+      contactEmail: "matous.kostkan@gmail.com",
+      photo: "https://placehold.co/400x400/333/CCC?text=Matouš"
     },
     {
-      firstName: "Jane",
-      lastName: "Smith",
-      instrument: "Bass",
+      firstName: "Matty",
+      lastName: "Safrankov",
+      instrument: "drums/back-vocals",
       instagram: "janesmith_bass",
-      contactEmail: "jane@temporaryfriends.com",
-      photo: "https://placehold.co/400x400/333/CCC?text=Jane"
+      contactEmail: "matvej.safrankov@gmail.com",
+      photo: "https://placehold.co/400x400/333/CCC?text=Matty"
     },
     {
-      firstName: "Mike",
-      lastName: "Johnson",
-      instrument: "Drums",
-      instagram: "mikejdrums",
+      firstName: "Jan",
+      lastName: "Komárek",
+      instrument: "Bass",
+      instagram: "honzak0marek",
       contactEmail: "mike@temporaryfriends.com",
-      photo: "https://placehold.co/400x400/333/CCC?text=Mike"
+      photo: "https://placehold.co/400x400/333/CCC?text=Jan"
     },
     {
-      firstName: "Sarah",
-      lastName: "Williams",
-      instrument: "Keyboards",
-      instagram: "sarahw_keys",
+      firstName: "David",
+      lastName: "DJ",
+      instrument: "Guitar",
+      instagram: "hhghjhhhhjh",
       contactEmail: "sarah@temporaryfriends.com",
-      photo: "https://placehold.co/400x400/333/CCC?text=Sarah"
+      photo: "https://placehold.co/400x400/333/CCC?text=David"
     }
   ],
   
@@ -87,36 +87,43 @@ const ENV = {
       { 
         id: "spotify",
         title: "Spotify",
-        url: "https://open.spotify.com/artist/your-id-here",
+        url: "https://open.spotify.com/artist/1hDC3ZGGpJRbvbGenpUo3g?flow_ctx=fa75a858-1724-4476-8111-fd1897057200%3A1746250300",
         linkText: "Listen on Spotify",
-        hasWrongAssociation: true
+        hasWrongAssociation: false
       },
       { 
         id: "apple",
         title: "Apple Music",
-        url: "https://music.apple.com/artist/your-id-here",
+        url: "https://music.apple.com/us/artist/temporary-friends/1800877818",
         linkText: "Listen on Apple Music",
         hasWrongAssociation: false
       },
       { 
-        id: "bandcamp",
-        title: "Bandcamp",
-        url: "https://temporaryfriends.bandcamp.com",
-        linkText: "Listen on Bandcamp",
-        hasWrongAssociation: false
+        id: "deezer",
+        title: "Deezer",
+        url: "https://www.deezer.com/en/album/723753291",
+        linkText: "Listen on Deezer",
+        hasWrongAssociation: true
       },
       { 
         id: "youtube",
         title: "YouTube Music",
-        url: "https://music.youtube.com/channel/your-id-here",
+        url: "https://music.youtube.com/playlist?list=OLAK5uy_k-hhXig_AYySIpPntUUk01KfRnimK82wE",
         linkText: "Listen on YouTube Music",
         hasWrongAssociation: true
       },
       { 
-        id: "soundcloud",
-        title: "SoundCloud",
-        url: "https://soundcloud.com/your-id-here",
-        linkText: "Listen on SoundCloud",
+        id: "amazon",
+        title: "AmazonMusic",
+        url: "https://music.amazon.com/artists/B00QT13EBQ/temporary-friends",
+        linkText: "Listen on Amazon Music",
+        hasWrongAssociation: false
+      },
+      {
+        id : "qobuz",
+        title : "Qobuz",
+        url : "https://www.qobuz.com/us-en/album/moved-me-temporary-friends/fvpwyo4ccutxa",
+        linkText : "Listen on Qobuz",
         hasWrongAssociation: false
       }
     ],
@@ -126,26 +133,14 @@ const ENV = {
       { 
         id: "instagram",
         title: "Instagram",
-        url: "https://instagram.com/temporaryfriends",
+        url: "https://www.instagram.com/_temporaryfriends.band_/",
         linkText: "Follow us on Instagram" 
       },
-      { 
-        id: "twitter",
-        title: "Twitter",
-        url: "https://twitter.com/tempfriends",
-        linkText: "Follow us on Twitter" 
-      },
-      { 
-        id: "facebook",
-        title: "Facebook",
-        url: "https://facebook.com/tempfriends",
-        linkText: "Follow us on Facebook" 
-      },
-      { 
-        id: "tiktok",
-        title: "TikTok",
-        url: "https://tiktok.com/@temporaryfriends",
-        linkText: "Follow us on TikTok" 
+      {
+        id: "email",
+        title: "Email",
+        url: "mailto:tempfrensband@gmail.com",
+        linkText: "Contact us via Email"
       }
     ],
     
@@ -153,30 +148,13 @@ const ENV = {
     shows: [
       { 
         id: 1, 
-        venue: "The Jazz Cafe", 
-        location: "Prague, CZ", 
-        date: "2025-05-15", 
-        time: "8:00 PM",
-        ticketLink: "https://example.com/tickets/1",
-        googleMapsUrl: "https://maps.google.com/?q=The+Jazz+Cafe+Prague"
-      },
-      { 
-        id: 2, 
-        venue: "Rock Festival", 
-        location: "Berlin, DE", 
-        date: "2025-06-20", 
-        time: "4:30 PM",
+        venue: "Studentský majáles", 
+        location: "Kampus Hybernská, Prague, CZ", 
+        date: "01-05-2025", 
+        time: "19:45",
         ticketLink: null,
-        googleMapsUrl: "https://maps.google.com/?q=Rock+Festival+Berlin"
-      },
-      { 
-        id: 3, 
-        venue: "Music Hall", 
-        location: "Vienna, AT", 
-        date: "2025-07-10", 
-        time: "9:00 PM",
-        ticketLink: null,
-        googleMapsUrl: "https://maps.google.com/?q=Music+Hall+Vienna"
+        eventLink: "https://www.instagram.com/p/DI_jmGJI_4H/?img_index=1",
+        googleMapsUrl: "https://maps.app.goo.gl/4bxTuvEnTxXdVkt69",
       }
     ]
   }
@@ -187,19 +165,9 @@ const ENV = {
  */
 const EPS = [
   {
-    title: "First Impressions",
+    title: "Moved Me",
     cover: "https://placehold.co/600x600/333/CCC?text=EP1",
-    songs: ["Hello World", "Digital Dreams", "Coding All Night", "Backend Blues"]
-  },
-  {
-    title: "Sophomore Surge",
-    cover: "https://placehold.co/600x600/333/CCC?text=EP2",
-    songs: ["Frontend Feelings", "CSS Cascade", "React Revelations", "Final Build"]
-  },
-  {
-    title: "Terminal Velocity",
-    cover: "https://placehold.co/600x600/333/CCC?text=EP3",
-    songs: ["Command Line", "Git Commit", "Deploy Day", "Runtime Error"]
+    songs: ["Moved Me"]
   }
 ];
 
@@ -357,16 +325,26 @@ function ShowCard({ show, onCopy, copiedLink }) {
         <div>
           <h3 className="text-xl font-bold">
             <a 
-              href={show.googleMapsUrl} 
+              href={show.eventLink || "#"} 
               target="_blank" 
               rel="noopener noreferrer"
               className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
-              title="Open in Google Maps"
+              title="View event details"
             >
               {show.venue}
             </a>
           </h3>
-          <p className={COLOR_THEME.textSecondary}>{show.location}</p>
+          <p className={COLOR_THEME.textSecondary}>
+            <a
+              href={show.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
+              title="Open in Google Maps"
+            >
+              {show.location}
+            </a>
+          </p>
         </div>
         <div className="text-right">
           <p className="font-bold">{new Date(show.date).toLocaleDateString()}</p>
@@ -613,6 +591,10 @@ export default function BandWebsite() {
               />
             ))}
           </div>
+          <p className={`${COLOR_THEME.textMuted} text-sm mt-4`}>
+            Note: Our music may be found on other platforms as well, but we didn't find them all.
+            If you find us on a platform not listed here, please let us know!
+          </p>
         </section>
         
         {/* Upcoming Shows Section */}
