@@ -1,0 +1,164 @@
+{
+  "COLOR_THEME": {
+    "bgPrimary": "bg-stone-950",
+    "bgSecondary": "bg-stone-900",
+    "bgHighlight": "bg-orange-600",
+    "textPrimary": "text-stone-50",
+    "textSecondary": "text-stone-300",
+    "textMuted": "text-stone-400",
+    "textAccent": "text-orange-400",
+    "textSuccess": "text-green-400",
+    "borderAccent": "border-orange-500",
+    "hoverBg": "hover:bg-stone-800",
+    "hoverBgAccent": "hover:bg-orange-700",
+    "hoverUnderline": "hover:underline",
+    "overlayDark": "bg-stone-950 bg-opacity-80",
+    "cardBg": "bg-stone-900 bg-opacity-90"
+  },
+
+  "ENV": {
+    "BAND_NAME": "Temporary Friends",
+    "BACKGROUND_IMAGE": "/group_images/background.png",
+    "MENU_LOGO": "group_images/logo.svg",
+    "BAND_MEMBERS": [
+      {
+        "firstName": "Matouš",
+        "lastName": "Kostkan",
+        "instrument": "Vocals/Guitar",
+        "instagram": "m_kolecko",
+        "contactEmail": "matous.kostkan@gmail.com",
+        "photo": "/group_images/profile_pictures/matous.jpg"
+      },
+      {
+        "firstName": "Matty",
+        "lastName": "Safrankov",
+        "instrument": "drums/back-vocals",
+        "instagram": "janesmith_bass",
+        "contactEmail": "matvej.safrankov@gmail.com",
+        "photo": "/group_images/profile_pictures/matty.jpg"
+      },
+      {
+        "firstName": "Honza",
+        "lastName": "Komárek",
+        "instrument": "Bass",
+        "instagram": "honzak0marek",
+        "contactEmail": "honza5002@gmail.com",
+        "photo": "/group_images/profile_pictures/honza.jpg"
+      },
+      {
+        "firstName": "David",
+        "lastName": "Janicek",
+        "instrument": "Guitar",
+        "instagram": "hhghjhhhhjh",
+        "contactEmail": "david.janicek31@gmail.com",
+        "photo": "/group_images/profile_pictures/david.jpg"
+      }
+    ],
+
+    "PLATFORMS": {
+      "streaming": [
+        {
+          "id": "spotify",
+          "title": "Spotify",
+          "url": "https://open.spotify.com/artist/1hDC3ZGGpJRbvbGenpUo3g?flow_ctx=fa75a858-1724-4476-8111-fd1897057200%3A1746250300",
+          "linkText": "Listen on Spotify",
+          "hasWrongAssociation": false
+        },
+        {
+          "id": "apple",
+          "title": "Apple Music",
+          "url": "https://music.apple.com/us/artist/temporary-friends/1800877818",
+          "linkText": "Listen on Apple Music",
+          "hasWrongAssociation": false
+        },
+        {
+          "id": "deezer",
+          "title": "Deezer",
+          "url": "https://www.deezer.com/en/album/723753291",
+          "linkText": "Listen on Deezer",
+          "hasWrongAssociation": true
+        },
+        {
+          "id": "youtube",
+          "title": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_k-hhXig_AYySIpPntUUk01KfRnimK82wE",
+          "linkText": "Listen on YouTube Music",
+          "hasWrongAssociation": true
+        },
+        {
+          "id": "amazon",
+          "title": "AmazonMusic",
+          "url": "https://music.amazon.com/artists/B00QT13EBQ/temporary-friends",
+          "linkText": "Listen on Amazon Music",
+          "hasWrongAssociation": false
+        },
+        {
+          "id": "qobuz",
+          "title": "Qobuz",
+          "url": "https://www.qobuz.com/us-en/album/moved-me-temporary-friends/fvpwyo4ccutxa",
+          "linkText": "Listen on Qobuz",
+          "hasWrongAssociation": false
+        }
+      ],
+      "social": [
+        {
+          "id": "instagram",
+          "title": "Instagram",
+          "url": "https://www.instagram.com/_temporaryfriends.band_/",
+          "linkText": "Follow us on Instagram"
+        },
+        {
+          "id": "email",
+          "title": "Email",
+          "url": "mailto:tempfrensband@gmail.com",
+          "linkText": "Contact us via Email"
+        }
+      ],
+      "shows": [
+        {
+          "id": 1,
+          "venue": "Studentský majáles",
+          "location": "Kampus Hybernská, Prague, CZ",
+          "date": "2025-05-01",
+          "time": "19:45",
+          "ticketLink": null,
+          "eventLink": "https://www.instagram.com/p/DI_jmGJI_4H/?img_index=1",
+          "googleMapsUrl": "https://maps.app.goo.gl/4bxTuvEnTxXdVkt69"
+        }
+      ]
+    }
+  },
+
+  "EPS": [
+    {
+      "title": "Moved Me",
+      "cover": "/group_images/albums/moved_me.jpg",
+      "songs": [
+        "Moved Me"
+      ]
+    }
+  ],
+
+  "SECTIONS": [
+    {
+      "id": "streaming",
+      "title": "Streaming Platforms"
+    },
+    {
+      "id": "shows",
+      "title": "Upcoming Shows"
+    },
+    {
+      "id": "social",
+      "title": "Social Media"
+    },
+    {
+      "id": "music",
+      "title": "Our Music"
+    },
+    {
+      "id": "bandmates",
+      "title": "Band Members"
+    }
+  ]
+}

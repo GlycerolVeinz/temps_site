@@ -165,6 +165,9 @@ export default function BandWebsite() {
             onCopy={copyToClipboard}
             copiedLink={copiedLink}
           />
+          <p className={`${COLOR_THEME.textMuted} text-sm mt-4`}>
+            Note: Date format is YYYY-MM-DD
+          </p>
         </section>
         
         {/* Social Media Section */}
