@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu } from 'lucide-react';
+import Image from 'next/image';
 
 import { COLOR_THEME, ENV, EPS, SECTIONS } from './config';
 import {
@@ -22,6 +23,8 @@ export default function BandWebsite() {
   const [copiedLink, setCopiedLink] = useState("");
   const landingRef = useRef(null);
   
+  console.log("Background:", ENV.BACKGROUND_IMAGE);
+
   // Set mounted state to true when component mounts
   useEffect(() => {
     setMounted(true);
@@ -106,14 +109,17 @@ export default function BandWebsite() {
         
         {/* Background image with error handling */}
         {ENV.BACKGROUND_IMAGE && (
-          <div 
-            className="absolute inset-0 bg-center bg-cover z-0"
-            style={{ 
-              backgroundImage: `url(${ENV.BACKGROUND_IMAGE})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          ></div>
+          <Image 
+            className="absolute inset-0 bg-center bg-cover z-10"
+            src={ENV.BACKGROUND_IMAGE}
+            layout="fill"
+            objectFit="cover"
+            alt="Band Background"
+            // style={{ 
+            //   backgroundSize: 'cover',
+            //   backgroundPosition: 'center'
+            // }}
+          ></Image>
         )}
         
         {/* Overlay for better text visibility */}

@@ -35,8 +35,8 @@ export const COLOR_THEME = {
     BAND_NAME: "Temporary Friends",
     
     // Image resources - using absolute paths from the root
-    BACKGROUND_IMAGE: "/TempsBackground.jpg", // Landing page background
-    MENU_LOGO: "/TempsLogo.svg", // Menu button logo
+    BACKGROUND_IMAGE: "/group_images/background.png", // Landing page background
+    MENU_LOGO: "group_images/logo.svg", // Menu button logo
     
     // Band members data with placeholder images
     BAND_MEMBERS: [
@@ -190,4 +190,3 @@ export const COLOR_THEME = {
       title: "Band Members"
     }
   ];
-  
