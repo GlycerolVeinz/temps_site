@@ -18,7 +18,7 @@
 
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE": "/group_images/background.png",
+    "BACKGROUND_IMAGE": "/group_images/background.jpg",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
