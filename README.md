@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Temporary Friends Band Website
 
-## Getting Started
+> This is the official website for the band **Temporary Friends**, built using Next.js and Tailwind CSS. The site showcases the band's music, upcoming shows, streaming platforms, social media links, and band member profiles.
 
-First, run the development server:
+## Features
 
+- **Landing Page**: A visually appealing landing page with a background image and the band's name.
+- **Streaming Platforms**: Links to various platforms (Spotify, Apple Music, Deezer, etc.) where the band's music is available.
+- **Upcoming Shows**: A section displaying upcoming shows with venue details, dates, times, and ticket links.
+- **Social Media**: Links to the band's Instagram and contact email.
+- **Music Section**: Displays the band's EPs with album covers and song lists.
+- **Band Members**: Profiles of band members with photos, instruments, and contact information.
+- **Responsive Design**: Fully responsive and optimized for all devices.
+
+## Tech Stack
+
+- **Framework**: Next.js (v15.3.1)
+- **Styling**: Tailwind CSS (v4)
+- **Icons**: Lucide React
+- **Fonts**: Google Fonts (Geist and Geist Mono)
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/your-repo/temps_site.git
+   cd temps_site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+   npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+   npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to http://localhost:3000.
 
-## Learn More
+## Configuration
 
-To learn more about Next.js, take a look at the following resources:
+The site uses a JSON configuration file located at `/public/config/configuration.json`. You can customize:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Color Theme**: Modify the `COLOR_THEME` object for custom colors.
+- **Band Information**: Update the `ENV` object with the band's name, background image, and member details.
+- **Platforms**: Add or update streaming, social, and show information in the `PLATFORMS` object.
+- **EPs**: Add EP details in the `EPS` array.
+- **Sections**: Modify the `SECTIONS` array to control which sections are displayed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Folder Structure
 
-## Deploy on Vercel
+The project follows a standard Next.js structure:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/`: Next.js app directory (layout, page, globals.css)
+- `components/`: React components
+  - `sections/`: Section components (BandMemberCard, EPCard, ShowCard, etc.)
+  - `BandWebsite.jsx`: Main website component
+  - `config.jsx`: Configuration loader
+- `public/`: Public assets and configuration files
+- `package.json`: Project metadata and dependencies
+- `tailwind.config.js`: Tailwind CSS configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Available Scripts
+
+- `npm run dev`: Start the development server
+- `npm run build`: Build the project for production
+- `npm run start`: Start the production server
+- `npm run lint`: Run ESLint to check for code issues
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Next.js and React for the framework
+- Tailwind CSS for styling
+- Lucide React for icons
+- Google Fonts for typography
+
+---
+
+© 2025 Temporary Friends. All rights reserved.
