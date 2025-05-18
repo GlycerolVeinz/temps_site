@@ -18,7 +18,7 @@
 
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE": "/group_images/background.jpg",
+    "BACKGROUND_IMAGE": "/group_images/background.webp",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
@@ -27,7 +27,7 @@
         "instrument": "Vocals/Guitar",
         "instagram": "m_kolecko",
         "contactEmail": "matous.kostkan@gmail.com",
-        "photo": "/group_images/profile_pictures/matous.jpg"
+        "photo": "/group_images/profile_pictures/matous.webp"
       },
       {
         "firstName": "Matty",
@@ -35,7 +35,7 @@
         "instrument": "drums/back-vocals",
         "instagram": "puppeteer_matty",
         "contactEmail": "matvej.safrankov@gmail.com",
-        "photo": "/group_images/profile_pictures/matty.jpg"
+        "photo": "/group_images/profile_pictures/matty.webp"
       },
       {
         "firstName": "Honza",
@@ -43,7 +43,7 @@
         "instrument": "Bass",
         "instagram": "honzak0marek",
         "contactEmail": "honza5002@gmail.com",
-        "photo": "/group_images/profile_pictures/honza.jpg"
+        "photo": "/group_images/profile_pictures/honza.webp"
       },
       {
         "firstName": "David",
@@ -51,7 +51,7 @@
         "instrument": "Guitar",
         "instagram": "hhghjhhhhjh",
         "contactEmail": "david.janicek31@gmail.com",
-        "photo": "/group_images/profile_pictures/david.jpg"
+        "photo": "/group_images/profile_pictures/david.webp"
       }
     ],
 
