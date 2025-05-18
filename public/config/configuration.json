@@ -18,7 +18,7 @@
 
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE": "/group_images/background.png",
+    "BACKGROUND_IMAGE": "/group_images/background.jpg",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
@@ -114,18 +114,7 @@
           "linkText": "Contact us via Email"
         }
       ],
-      "shows": [
-        {
-          "id": 1,
-          "venue": "Studentský majáles",
-          "location": "Kampus Hybernská, Prague, CZ",
-          "date": "2025-05-01",
-          "time": "19:45",
-          "ticketLink": null,
-          "eventLink": "https://www.instagram.com/p/DI_jmGJI_4H/?img_index=1",
-          "googleMapsUrl": "https://maps.app.goo.gl/4bxTuvEnTxXdVkt69"
-        }
-      ]
+      "shows": []
     }
   },
 
