@@ -18,7 +18,7 @@
 
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE": "/group_images/background.webp",
+    "BACKGROUND_IMAGE": "/group_images/background.jpg",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
@@ -121,7 +121,7 @@
   "EPS": [
     {
       "title": "Moved Me",
-      "cover": "/group_images/albums/moved_me.jpg",
+      "cover": "/group_images/albums/moved_me.webp",
       "songs": [
         "Moved Me"
       ]
