@@ -22,8 +22,18 @@
 ## Installation
 
 1. Clone the repository:
+
+### HTTP
 ```bash
-   git clone https://github.com/your-repo/temps_site.git
+   git clone https://github.com/GlycerolVeinz/temps_site.git
+   cd temps_site
+```
+
+or 
+
+### SSH
+```bash
+   git clone https://github.com/GlycerolVeinz/temps_site.git
    cd temps_site
 ```
 
@@ -37,7 +47,7 @@
    npm run dev
 ```
 
-4. Open your browser and navigate to http://localhost:3000.
+4. Open your browser and navigate to [localhost](http://localhost:3000).
 
 ## Configuration
 
