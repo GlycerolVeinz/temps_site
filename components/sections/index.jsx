@@ -9,4 +9,6 @@ export { default as ShowCard } from './ShowCard';
 export { default as UpcomingShows } from './UpcomingShows';
 export { default as SectionHeader } from './SectionHeader';
 export { default as NavigationMenu } from './NavigationMenu';
+export { default as Landing } from './Landing';
+export { default as MenuButton } from './MenuButton';
 

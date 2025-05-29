@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu } from 'lucide-react';
-import Image from 'next/image';
 
 import { COLOR_THEME, ENV, EPS, SECTIONS } from './config';
 import {
@@ -11,8 +9,13 @@ import {
   EPCard,
   UpcomingShows,
   SectionHeader,
-  NavigationMenu
+  NavigationMenu,
+  MenuButton,
+  Landing
 } from './sections';
+import {
+  StreamingSectionFactory
+} from './factories'
 
 /**
  * Main Band Website Component
@@ -72,91 +75,34 @@ export default function BandWebsite() {
   return (
     <div className={`${COLOR_THEME.bgPrimary} ${COLOR_THEME.textPrimary}`}>
       {/* Menu Toggle Button using Band Logo */}
-      <button
+      <MenuButton
         onClick={() => setMenuOpen(true)}
-        className="fixed top-4 right-4 z-50 rounded-full shadow-lg overflow-hidden"
-        aria-label="Open menu"
-        title="Menu"
-      >
-        <div className="w-12 h-12 bg-orange-600 flex items-center justify-center">
-          {ENV.MENU_LOGO ? (
-            <img 
-              src={ENV.MENU_LOGO} 
-              alt="Menu" 
-              className="w-12 h-12 object-cover"
-            />
-          ) : (
-            <Menu size={24} className="text-white" />
-          )}
-        </div>
-      </button>
+        menuLogo={ENV.MENU_LOGO}
+      />
 
       {/* Navigation Menu */}
       <NavigationMenu 
-        sections={[
-          { id: 'landing', title: 'Home' },
-          ...SECTIONS
-        ]}
+        sections={SECTIONS}
         onNavigate={handleNavigate}
         isOpen={menuOpen}
         onClose={() => setMenuOpen(false)}
       />
-      
+
       {/* Landing Page Section */}
-      <section id="landing" ref={landingRef} className="h-screen relative">
-        {/* Fallback background color if image doesn't load */}
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900 to-stone-950"></div>
-        
-        {/* Background image with error handling */}
-        {ENV.BACKGROUND_IMAGE && (
-          <Image 
-            className="absolute inset-0 bg-center bg-cover z-10"
-            src={ENV.BACKGROUND_IMAGE}
-            layout="fill"
-            objectFit="cover"
-            alt="Band Background"
-            // style={{ 
-            //   backgroundSize: 'cover',
-            //   backgroundPosition: 'center'
-            // }}
-          ></Image>
-        )}
-        
-        {/* Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-        
-        {/* Main content */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white text-center px-4">
-            {ENV.BAND_NAME}
-          </h1>
-        </div>
-      </section>
-      
+      <Landing
+        landingRef={landingRef}
+        backroundImage={ENV.BACKGROUND_IMAGE}
+        bandName={ENV.BAND_NAME}
+      />
+
       {/* Content Sections */}
       <div className="container mx-auto p-4">
         {/* Streaming Platforms Section */}
-        <section id="streaming" className="my-16">
-          <SectionHeader title="Streaming Platforms" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {ENV.PLATFORMS.streaming.map(platform => (
-              <PlatformLink 
-                key={platform.id}
-                id={platform.id}
-                title={platform.title}
-                url={platform.url}
-                linkText={platform.linkText}
-                onCopy={copyToClipboard}
-                copiedLink={copiedLink}
-                hasWrongAssociation={platform.hasWrongAssociation}
-              />
-            ))}
-          </div>
-          <p className={`${COLOR_THEME.textMuted} text-sm mt-4`}>
-            Note: Our music may be found on other platforms as well, but we didn't find them all.
-            If you find us on a platform not listed here, please let us know!
-          </p>
-        </section>
+        <StreamingSectionFactory
+          streamingList={ENV.PLATFORMS.streaming}
+          copyAction = {copyToClipboard}
+          copiedLink={copiedLink}
+        />
         
         {/* Upcoming Shows Section */}
         <section id="shows" className="my-16">

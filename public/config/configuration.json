@@ -130,6 +130,10 @@
 
   "SECTIONS": [
     {
+      "id" : "landing",
+      "title": "Home"
+    },
+    {
       "id": "streaming",
       "title": "Streaming Platforms"
     },
