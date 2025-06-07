@@ -72,17 +72,31 @@
           "hasWrongAssociation": false
         },
         {
-          "id": "deezer",
-          "title": "Deezer",
-          "url": "https://www.deezer.com/en/album/723753291",
-          "linkText": "Listen on Deezer",
-          "hasWrongAssociation": true
-        },
-        {
           "id": "youtube",
           "title": "YouTube Music",
           "url": "https://music.youtube.com/playlist?list=OLAK5uy_k-hhXig_AYySIpPntUUk01KfRnimK82wE",
           "linkText": "Listen on YouTube Music",
+          "hasWrongAssociation": true
+        },
+        {
+          "id":"tidal",
+          "title": "Tidal",
+          "url":"https://listen.tidal.com/artist/55276340",
+          "linkText": "Listen on Tidal",
+          "hasWrongAssociation": false
+        },
+        {
+          "id":"yandex",
+          "title": "Yandex Music",
+          "url":"https://music.yandex.ru/artist/23902303?utm_medium=copy_link",
+          "linkText": "Listen on Yandex Music",
+          "hasWrongAssociation": false
+        },
+        {
+          "id": "deezer",
+          "title": "Deezer",
+          "url": "https://www.deezer.com/en/album/723753291",
+          "linkText": "Listen on Deezer",
           "hasWrongAssociation": true
         },
         {
