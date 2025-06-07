@@ -12,6 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://temporaryfriends.fun"),
   title : "Temporary Friends",
   description : "Temporary Friends band official website. Check out our music, upcoming shows, and social media links.",
   keywords : "Temporary Friends, band, music, shows, social media, streaming platforms",
@@ -19,15 +20,16 @@ export const metadata = {
   openGraph: {
     title: "Temporary Friends",
     description: "Official website of Temporary Friends band. Discover our music, upcoming shows, and social media links.",
-    url: "https://temporaryfriends.fun",
+    url: "/",
     siteName: "Temporary Friends",
     images: [
-      {
-        url: "https://temporaryfriends.fun/group_images/background.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Temporary Friends Band",
-      },
+      { url: "/group_images/non_site_images/og_image.jpg", width: 1200, height: 630, alt: "Temporary Friends Band" },
+      { url: "/group_images/non_site_images/favicons/favicon-32x32.png", width: 32, height: 32, alt: "Temporary Friends Favicon" },
+      { url: "/group_images/non_site_images/favicons/favicon-16x16.png", width: 16, height: 16, alt: "Temporary Friends Favicon" },
+      { url: "/group_images/non_site_images/favicons/apple-touch-icon.png", width: 180, height: 180, alt: "Temporary Friends Apple Touch Icon" },
+      { url: "/group_images/non_site_images/favicons/android-chrome-192x192.png", width: 192, height: 192, alt: "Temporary Friends Android Chrome Icon" },
+      { url: "/group_images/non_site_images/favicons/android-chrome-512x512.png", width: 512, height: 512, alt: "Temporary Friends Android Chrome Icon" },
+      { url: "/group_images/non_site_images/favicons/favicon.ico", width: 64, height: 64, alt: "Temporary Friends Favicon" }
     ],
     locale: "en_GB",
     type: "website",
@@ -50,7 +52,7 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: "https://temporaryfriends.fun"
+    canonical: "/"
   },
   
   category: "music",
@@ -60,7 +62,6 @@ export const metadata = {
   ],
   creator: "GlycerolVeinz",
   publisher: "Temporary Friends",
-  colorScheme: "dark",
 
   twitter : {
     card: "summary_large_image",
@@ -69,7 +70,7 @@ export const metadata = {
     creator: "@safrankou",
     images: [
       {
-        url: "https://temporaryfriends.fun/group_images/background.jpg",
+        url: "/group_images/background.jpg",
         alt: "Temporary Friends Band",
       },
     ],
