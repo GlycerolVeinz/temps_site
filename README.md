@@ -93,3 +93,33 @@ This project is licensed under the MIT License.
 ---
 
 © 2025 Temporary Friends. All rights reserved.
+- `app/`: Next.js app directory (layout, page, globals.css)
+- `components/`: React components
+  - `sections/`: Section components (BandMemberCard, EPCard, ShowCard, etc.)
+  - `BandWebsite.jsx`: Main website component
+  - `config.jsx`: Configuration loader
+- `public/`: Public assets and configuration files
+- `package.json`: Project metadata and dependencies
+- `tailwind.config.js`: Tailwind CSS configuration
+
+## Available Scripts
+
+- `npm run dev`: Start the development server
+- `npm run build`: Build the project for production
+- `npm run start`: Start the production server
+- `npm run lint`: Run ESLint to check for code issues
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Next.js and React for the framework
+- Tailwind CSS for styling
+- Lucide React for icons
+- Google Fonts for typography
+
+---
+
+© 2025 Temporary Friends. All rights reserved.
