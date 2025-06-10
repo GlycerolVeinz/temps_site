@@ -5,16 +5,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { COLOR_THEME, ENV, EPS, SECTIONS } from './config';
 import {
   PlatformLink,
-  BandMemberCard,
   EPCard,
-  UpcomingShows,
   SectionHeader,
   NavigationMenu,
   MenuButton,
   Landing
 } from './sections';
 import {
-  StreamingSectionFactory
+  StreamingSectionFactory,
+  UpcomingShowsFactory,
+  BandMemberSectionFactory
 } from './factories'
 
 /**
@@ -105,17 +105,12 @@ export default function BandWebsite() {
         />
         
         {/* Upcoming Shows Section */}
-        <section id="shows" className="my-16">
-          <UpcomingShows 
-            shows={ENV.PLATFORMS.shows} 
-            onCopy={copyToClipboard}
-            copiedLink={copiedLink}
-          />
-          <p className={`${COLOR_THEME.textMuted} text-sm mt-4`}>
-            Note: Date format is YYYY-MM-DD
-          </p>
-        </section>
-        
+        <UpcomingShowsFactory 
+          shows={ENV.PLATFORMS.shows} 
+          onCopy={copyToClipboard}
+          copiedLink={copiedLink}
+        />
+      
         {/* Social Media Section */}
         <section id="social" className="my-16">
           <SectionHeader title="Social Media" />
@@ -145,17 +140,12 @@ export default function BandWebsite() {
         </section>
         
         {/* Band Members Section */}
-        <section id="bandmates" className="my-16">
-          <SectionHeader title="Band Members" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ENV.BAND_MEMBERS.map((member) => (
-              <BandMemberCard key={`${member.firstName}-${member.lastName}`} member={member} />
-            ))}
-          </div>
-        </section>
+        <BandMemberSectionFactory 
+          members={ENV.BAND_MEMBERS}
+        />
         
         <footer className="text-center py-6">
-          <p>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</p>
+          <p>© 2025 {ENV.BAND_NAME}. All rights reserved.</p>
         </footer>
       </div>
     </div>

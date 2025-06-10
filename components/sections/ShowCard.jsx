@@ -7,10 +7,6 @@ import { COLOR_THEME } from '../config';
  * Displays information about an upcoming show
  */
 export default function ShowCard({ show, onCopy, copiedLink }) {
-  console.log("Timezone:", show.timezone);
-  console.log("Date:", show.date);
-  console.log("Time:", show.time);
-  console.log("Locale time:", new Date(show.date).toLocaleDateString());
   return (
     <div key={show.id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
       <div className="flex justify-between flex-wrap">
