@@ -1,4 +1,3 @@
-import Image from "next/image";
 import BandWebsite from "../components/BandWebsite";
 
 export default function Home() {
