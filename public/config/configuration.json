@@ -126,9 +126,26 @@
           "title": "Email",
           "url": "mailto:tempfrensband@gmail.com",
           "linkText": "Contact us via Email"
+        },
+        {
+          "id" : "goout",
+          "title" : "GoOut",
+          "url" : "https://goout.net/en/temporary-friends/pzfuapg/",
+          "linkText" : "Check us out on GoOut"
         }
       ],
-      "shows": []
+      "shows": [
+        {
+          "id" : 0,
+          "venue" : "Vektor",
+          "location" : "Vektor technická, Praha, CZ",
+          "date" : "2025-06-26",
+          "time" : "20:00",
+          "ticketLink" : null,
+          "eventLink" : "https://m.facebook.com/events/738574332049569/?acontext=%7B%22action_history%22:%22null%22%7D&ref_source=newsfeed&ref_mechanism=feed_attachment",
+          "googleMapsUrl" : "https://maps.app.goo.gl/ixtZfoWusi5pz9gTA"
+        }
+    ]
     }
   },
 
