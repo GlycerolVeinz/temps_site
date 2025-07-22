@@ -76,7 +76,7 @@
           "title": "YouTube Music",
           "url": "https://music.youtube.com/playlist?list=OLAK5uy_k-hhXig_AYySIpPntUUk01KfRnimK82wE",
           "linkText": "Listen on YouTube Music",
-          "hasWrongAssociation": true
+          "hasWrongAssociation": false
         },
         {
           "id":"tidal",
