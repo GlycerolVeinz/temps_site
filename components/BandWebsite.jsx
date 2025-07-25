@@ -166,7 +166,7 @@ export default function BandWebsite() {
             copiedLink={copiedLink}
           />
           <p className={`${COLOR_THEME.textMuted} text-sm mt-4`}>
-            Note: Date format is YYYY-MM-DD
+            Note: Date format is DD.MM YYYY
           </p>
         </section>
         
