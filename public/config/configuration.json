@@ -138,6 +138,12 @@
           "title" : "TikTok",
           "url" : "http://tiktok.com/@temporary.friends.band",
           "linkText" : "Follow us on TikTok"
+        },
+        {
+          "id" : "facebook",
+          "title" : "Facebook",
+          "url" : "https://www.facebook.com/profile.php?id=61578486608821",
+          "linkText" : "Follow our facebook page" 
         }
       ],
       "shows": [
