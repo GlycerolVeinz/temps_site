@@ -1,0 +1,94 @@
+/* Show Component Styles */
+.showsContainer {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.showsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.showCardContainer {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-secondary);
+}
+
+.showHeader {
+    display: flex;
+    color: var(--text-link);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.showDetails {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.venueLink {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+.venueLink:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.locationLink {
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+.locationLink:hover {
+    text-decoration: underline;
+}
+
+.showDateTime {
+    text-align: right;
+}
+
+.showDate {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.showTime {
+    margin-top: 0.25rem;
+    color: var(--text-primary);
+}
+
+.showActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.showMapActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.venueTicketsOnly {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.noShowsMessage {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+    font-style: italic;
+}

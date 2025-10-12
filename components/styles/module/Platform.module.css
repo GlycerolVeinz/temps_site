@@ -1,0 +1,76 @@
+
+/* Platform Component Styles */
+.platformContainer {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.platformCardContainer {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.platformHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.platformContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.platformActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.warningBadge {
+    background-color: var(--bg-warning);
+    padding: 0.27rem;
+    border-radius: 5rem;
+    cursor: help;
+    position: relative;
+}
+
+.warningBadge::after {
+    content: "This platform may mix our music with other artists using the same name.";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-primary);
+    color: var(--text-warning);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--text-warning);
+
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10;
+    margin-bottom: 0.25rem;
+}
+
+.warningBadge:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.copiedBadge {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}

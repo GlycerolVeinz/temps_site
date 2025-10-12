@@ -1,34 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import ShowCard from './ShowCard';
-import SectionHeader from './SectionHeader';
+import styles from '@/components/styles/module/Show.module.css';
+
+const ShowsContainer = styled.div.attrs({ className: styles.showsContainer })``;
+const NoShowsMessage = styled.p.attrs({ className: styles.noShowsMessage })``;
+const ShowsGrid = styled.div.attrs({ className: styles.showsGrid })``;
 
 /**
- * Upcoming Shows Component
- * Displays a list of upcoming shows or a message if none
+ * Upcoming Shows Section Component  
+ * Displays a list of upcoming shows
  */
-export default function UpcomingShows({ shows, onCopy, copiedLink }) {
-  if (!shows || shows.length === 0) {
-    return (
-      <div>
-        <SectionHeader title="Upcoming Shows" />
-        <p className="text-center">No upcoming shows at the moment. Check back soon!</p>
-      </div>
-    );
-  }
+export default function UpcomingShowsSection({ shows }) {
+  const hasShows = shows && shows.length > 0;
   
   return (
-    <div>
-      <SectionHeader title="Upcoming Shows" />
-      <div className="grid grid-cols-1 gap-4">
-        {shows.map(show => (
-          <ShowCard 
-            key={show.id} 
-            show={show} 
-            onCopy={onCopy} 
-            copiedLink={copiedLink} 
-          />
-        ))}
-      </div>
-    </div>
+    <ShowsContainer>
+      {hasShows ? (
+        <ShowsGrid>
+          {shows.map(show => (
+            <ShowCard 
+              key={show.id} 
+              show={show}
+            />
+          ))}
+        </ShowsGrid>
+      ) : (
+        <NoShowsMessage>
+          No upcoming shows at the moment. Check back soon!
+        </NoShowsMessage>
+      )}
+    </ShowsContainer>
   );
 }

@@ -1,0 +1,95 @@
+.titleText {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.headerText {
+    margin: 0.1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.headerLinkText {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+.headerLinkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.normalText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-primary);
+}
+
+.normalTextSecondary {
+    font-size: 0.98rem;
+    margin: 0.1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.linkText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-link);
+}
+
+.linkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.warningText {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    color: var(--text-warning);
+    position: relative;
+    cursor: help;
+}
+
+.successText {
+    font-size: 0.875rem;
+    color: var(--text-success);
+}
+
+.noteText{
+    font-size: 0.875rem;
+    margin-top: 0.15rem;
+    color: var(--text-muted);
+}
+
+.footerText {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.copiedMessage {
+    color: var(--text-success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

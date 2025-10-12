@@ -18,7 +18,8 @@
 
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE": "/group_images/background.jpg",
+    "BACKGROUND_IMAGE_CP": "/group_images/background.jpg",
+    "BACKGROUND_IMAGE" : "/group_images/_DSC0670.jpg",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
@@ -52,6 +53,14 @@
         "instagram": "hhghjhhhhjh",
         "contactEmail": "david.janicek31@gmail.com",
         "photo": "/group_images/profile_pictures/david.webp"
+      },
+      {
+        "firstName": "Vitek",
+        "lastName": "Vitkovich",
+        "instrument": "Secondary Bass",
+        "instagram": "vitezslav",
+        "contactEmail": "random@random.cz",
+        "photo": "/group_images/profile_pictures/vitek.jpg"
       }
     ],
 

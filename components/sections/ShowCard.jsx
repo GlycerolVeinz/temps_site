@@ -1,70 +1,76 @@
 import React from 'react';
 import { Copy } from 'lucide-react';
-import { COLOR_THEME } from '../config';
+import styled from 'styled-components';
+import styles from '@/components/styles/module/Show.module.css';
+import textStyles from '@/components/styles/globals/text.module.css';
+import buttonStyles from '@/components/styles/globals/button.module.css';
+
+const ShowCardContainer = styled.div.attrs({ className: styles.showCardContainer })``;
+const ShowHeader = styled.div.attrs({ className: styles.showHeader })``;
+const ShowDetails = styled.div.attrs({ className: styles.showDetails })``;
+const VenueLink = styled.a.attrs({ className: styles.venueLink })``;
+const LocationLink = styled.a.attrs({ className: styles.locationLink })``;
+const ShowDateTime = styled.div.attrs({ className: styles.showDateTime })``;
+const ShowDate = styled.p.attrs({ className: styles.showDate })``;
+const ShowTime = styled.p.attrs({ className: styles.showTime })``;
+const ShowActions = styled.div.attrs({ className: styles.showActions })``;
+const ShowMapActions = styled.div.attrs({ className: styles.showMapActions })``;
+const TicketButton = styled.a.attrs({ className: buttonStyles.primaryButton })``;
+const VenueTicketsOnly = styled.span.attrs({ className: styles.venueTicketsOnly })``;
+const CopyButton = styled.button.attrs({ className: buttonStyles.copyButton })``;
+const CopiedMessage = styled.span.attrs({ className: textStyles.copiedMessage })``;
 
 /**
  * Show Card Component
- * Displays information about an upcoming show
+ * Displays information about an upcoming show with copy functionality
  */
-export default function ShowCard({ show, onCopy, copiedLink }) {
+export default function ShowCard({ show, copiedLink, onCopyMap }) {
   return (
-    <div key={show.id} className={`${COLOR_THEME.cardBg} p-4 rounded-lg`}>
-      <div className="flex justify-between flex-wrap">
-        <div>
-          <h3 className="text-xl font-bold">
-            <a 
-              href={show.eventLink || "#"} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
-              title="View event details"
-            >
-              {show.venue}
-            </a>
-          </h3>
-          <p className={COLOR_THEME.textSecondary}>
-            <a
+    <ShowCardContainer>
+      <ShowHeader>
+        <ShowDetails>
+          <VenueLink
+            href={show.eventLink || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View event details"
+          >
+            {show.venue}
+          </VenueLink>
+          <div>
+            <LocationLink
               href={show.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${COLOR_THEME.textAccent} ${COLOR_THEME.hoverUnderline}`}
               title="Open in Google Maps"
             >
               {show.location}
-            </a>
-          </p>
-        </div>
-        <div className="text-right">
-          <p className="font-bold">{show.date}</p>
-          <p>{show.time}</p>
-        </div>
-      </div>
-      <div className="mt-4 flex justify-between items-center">
+            </LocationLink>
+            {copiedLink === show.googleMapsUrl && (
+              <CopiedMessage>Map link copied!</CopiedMessage>
+            )}
+          </div>
+        </ShowDetails>
+        <ShowDateTime>
+          <ShowDate>{show.date}</ShowDate>
+          <ShowTime>{show.time}</ShowTime>
+        </ShowDateTime>
+      </ShowHeader>
+      <ShowActions>
         {show.ticketLink ? (
-          <a 
-            href={show.ticketLink} 
+          <TicketButton
+            href={show.ticketLink}
             target="_blank"
-            rel="noopener noreferrer" 
-            className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgHighlight} ${COLOR_THEME.hoverBgAccent}`}
+            rel="noopener noreferrer"
           >
             Get Tickets
-          </a>
+          </TicketButton>
         ) : (
-          <span className={`inline-block px-4 py-2 rounded-md ${COLOR_THEME.bgSecondary}`}>
+          <VenueTicketsOnly>
             Tickets Available At Venue
-          </span>
+          </VenueTicketsOnly>
         )}
-        <button 
-          onClick={() => onCopy(show.googleMapsUrl)}
-          className={`p-2 bg-gray-700 rounded-md ${COLOR_THEME.hoverBgAccent} ml-2`}
-          title="Copy map link"
-        >
-          <Copy size={16} />
-        </button>
-      </div>
-      {copiedLink === show.googleMapsUrl && (
-        <span className={`${COLOR_THEME.textSuccess} text-sm mt-1 block`}>Map link copied!</span>
-      )}
-    </div>
+      </ShowActions>
+    </ShowCardContainer>
   );
 }
