@@ -8,16 +8,16 @@ import buttonStyles from '@/components/styles/globals/button.module.css';
 const ShowCardContainer = styled.div.attrs({ className: styles.showCardContainer })``;
 const ShowHeader = styled.div.attrs({ className: styles.showHeader })``;
 const ShowDetails = styled.div.attrs({ className: styles.showDetails })``;
-const VenueLink = styled.a.attrs({ className: styles.venueLink })``;
-const LocationLink = styled.a.attrs({ className: styles.locationLink })``;
+const VenueLink = styled.a.attrs({ className: textStyles.headerLinkText })``;
+const LocationLink = styled.a.attrs({ className: textStyles.linkText })``;
 const ShowDateTime = styled.div.attrs({ className: styles.showDateTime })``;
-const ShowDate = styled.p.attrs({ className: styles.showDate })``;
-const ShowTime = styled.p.attrs({ className: styles.showTime })``;
+const ShowDate = styled.p.attrs({ className: textStyles.headerText })``;
+const ShowTime = styled.p.attrs({ className: textStyles.normalText })``;
 const ShowActions = styled.div.attrs({ className: styles.showActions })``;
 const ShowMapActions = styled.div.attrs({ className: styles.showMapActions })``;
-const TicketButton = styled.a.attrs({ className: buttonStyles.primaryButton })``;
-const VenueTicketsOnly = styled.span.attrs({ className: styles.venueTicketsOnly })``;
-const CopyButton = styled.button.attrs({ className: buttonStyles.copyButton })``;
+const TicketButton = styled.a.attrs({ className: `${buttonStyles.primaryButton} ${textStyles.normalText}` })``;
+const VenueTicketsOnly = styled.span.attrs({ className: `${styles.venueTicketsOnly} ${textStyles.normalText}` })``;
+const CopyButton = styled.button.attrs({ className: `${buttonStyles.copyButton} ${textStyles.normalText}` })``;
 const CopiedMessage = styled.span.attrs({ className: textStyles.copiedMessage })``;
 
 /**

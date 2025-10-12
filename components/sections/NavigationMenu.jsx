@@ -3,14 +3,15 @@ import { X } from 'lucide-react';
 import styled from 'styled-components';
 import styles from '@/components/styles/module/NavigationMenu.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
+import textStyles from '@/components/styles/globals/text.module.css';
 
 const MenuContainer = styled.div.attrs(({ isOpen }) => ({ 
   className: `${styles.menuContainer} ${isOpen ? styles.open : ''}` 
 }))``;
 const MenuHeader = styled.div.attrs({ className: styles.menuHeader })``;
-const CloseButton = styled.button.attrs({ className: buttonStyles.closeButton })``;
+const CloseButton = styled.button.attrs({ className: `${buttonStyles.closeButton} ${textStyles.normalText}` })``;
 const MenuItems = styled.div.attrs({ className: styles.menuItems })``;
-const MenuItem = styled.div.attrs({ className: styles.menuItem })``;
+const MenuItem = styled.div.attrs({ className: `${styles.menuItem} ${textStyles.normalText}` })``;
 
 /**
  * Navigation Menu Component

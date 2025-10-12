@@ -37,6 +37,5 @@
 
 .menuItem:hover {
     background-color: var(--bg-hover-primary);
-    color: var(--text-hover);
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.4s ease;
 }

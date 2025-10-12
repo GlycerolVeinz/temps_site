@@ -53,7 +53,6 @@
     border-radius: 0.5rem;
     border: 1px solid var(--text-warning);
 
-    font-size: 0.75rem;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
@@ -69,7 +68,6 @@
 }
 
 .copiedBadge {
-    font-size: 0.875rem;
     margin-top: 0.25rem;
     display: block;
     animation: fadeIn 0.3s ease-in;

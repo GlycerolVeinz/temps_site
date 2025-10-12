@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import ShowCard from './ShowCard';
 import styles from '@/components/styles/module/Show.module.css';
+import textStyles from '@/components/styles/globals/text.module.css';
 
 const ShowsContainer = styled.div.attrs({ className: styles.showsContainer })``;
-const NoShowsMessage = styled.p.attrs({ className: styles.noShowsMessage })``;
+const NoShowsMessage = styled.p.attrs({ className: `${styles.noShowsMessage} ${textStyles.normalTextSecondary}` })``;
 const ShowsGrid = styled.div.attrs({ className: styles.showsGrid })``;
 
 /**
