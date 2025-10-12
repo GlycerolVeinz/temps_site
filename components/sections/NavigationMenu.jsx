@@ -11,7 +11,7 @@ const MenuContainer = styled.div.attrs(({ isOpen }) => ({
 const MenuHeader = styled.div.attrs({ className: styles.menuHeader })``;
 const CloseButton = styled.button.attrs({ className: `${buttonStyles.closeButton} ${textStyles.normalText}` })``;
 const MenuItems = styled.div.attrs({ className: styles.menuItems })``;
-const MenuItem = styled.div.attrs({ className: `${styles.menuItem} ${textStyles.normalText}` })``;
+const MenuItem = styled.div.attrs({ className: `${styles.menuItem} ${textStyles.menuLinkText}` })``;
 
 /**
  * Navigation Menu Component

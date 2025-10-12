@@ -13,8 +13,8 @@ const PlatformContent = styled.div.attrs({ className: styles.platformContent })`
 const PlatformActions = styled.div.attrs({ className: styles.platformActions })``;
 const PlatformLink = styled.a.attrs({ className: textStyles.linkText })``;
 const CopyButton = styled.button.attrs({ className: `${buttonStyles.copyButton} ${textStyles.normalText}` })``;
-const CopiedBadge = styled.div.attrs({ className: styles.copiedBadge })``;
-const CopiedMessage = styled.span.attrs({ className: textStyles.copiedMessage })``;
+const CopiedBadge = styled.div.attrs({ className: `${styles.copiedBadge} ${textStyles.copiedMessage}` })``;
+
 const WarningText = styled.span.attrs({ className: textStyles.warningText })``;
 
 /**
@@ -53,9 +53,7 @@ export default function PlatformCard({
         </PlatformActions>
       </PlatformContent>
       {copiedLink === platform.url && (
-        <CopiedBadge>
-          <CopiedMessage>Link copied!</CopiedMessage>
-        </CopiedBadge>
+        <CopiedBadge> Link copied! </CopiedBadge>
       )}
     </PlatformCardContainer>
   );

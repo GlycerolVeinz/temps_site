@@ -29,6 +29,17 @@
     color: var(--text-primary);
 }
 
+.menuLinkText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-primary)
+}
+
+.menuLinkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
 .normalTextSecondary {
     font-size: 0.98rem;
     margin: 0.1rem;
