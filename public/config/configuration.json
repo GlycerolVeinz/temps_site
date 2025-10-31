@@ -143,41 +143,31 @@
           "id" : "facebook",
           "title" : "Facebook",
           "url" : "https://www.facebook.com/profile.php?id=61578486608821",
-          "linkText" : "Follow our facebook page" 
+          "linkText" : "Follow our facebook page"
         }
       ],
       "shows": [
         {
           "id" : 0,
-          "venue" : "Crasher party vol.1",
-          "location" : "Café na půl cesty, Prague, Czech Republic",
-          "date" : "05.09 2025",
-          "time" : "19:30",
+          "venue" : "Hlýna, Já a spol, Temporary Friends, Rafael?",
+          "location" : "Anežka, Prague, Czech Republic",
+          "date" : "14.11.2025",
+          "time" : "18:00",
           "ticketLink" : null,
-          "eventLink" : "https://www.facebook.com/share/1CZEfsv83p/",
-          "googleMapsUrl" : "https://maps.app.goo.gl/5B46pPzQEdFmEZxg7"
+          "eventLink" : "https://www.facebook.com/events/824643879974261",
+          "googleMapsUrl" : "https://maps.app.goo.gl/Py9HoyTegRYSvjro6"
         },
         {
           "id" : 1,
-          "venue" : "Forest Ray + The Roaring 420s + Temporary Friends",
-          "location" : "Klubovna povaleč, Prague, Czech Republic",
-          "date" : "11.09 2025",
-          "time" : "18:50",
-          "ticketLink" : "https://goout.net/en/forest-ray+the-roaring-420s+temporary-friends/szgklwx/",
-          "eventLink" : "https://www.facebook.com/share/1FkPtmT28X/",
-          "googleMapsUrl" : "https://maps.app.goo.gl/1h3HQu81hGmGtimP9"
-        },
-        {
-          "id" : 2,
-          "venue" : "ARTICULATE 2025",
-          "location" : "Het Bos, Antwerpen, Belgium",
-          "date" : "16.10 2025",
-          "time" : "19:30",
-          "ticketLink" : null,
-          "eventLink" : "https://www.ap-arts.be/evenement/articulate-2025-i-conservatoire",
-          "googleMapsUrl" : "https://maps.app.goo.gl/6eNcWjEjey15rMRe8"
+          "venue" : "Laundromat Chicks + Cold Meat Party + Temporary Friends",
+          "location" : "Kampus Hybernská, Prague, Czech Republic",
+          "date" : "29.11 2025",
+          "time" : "19:00",
+          "ticketLink" : "https://goout.net/cs/laundromat-chicks%2Bcold-meat-party%2Btemporary-friends/szboocy/",
+          "eventLink" : "https://www.facebook.com/events/1424855051943584",
+          "googleMapsUrl" : "https://maps.app.goo.gl/VYoHU8Ei8aaaqvJt5"
         }
-    ]
+      ]
     }
   },
 
