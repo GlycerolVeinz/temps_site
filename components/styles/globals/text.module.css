@@ -85,13 +85,20 @@
 }
 
 .bandNameText {
-    font-size: 18.5vw;
+    font-size: 18vw;
     font-weight: bold;
     color: var(--text-primary);
     text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
-    line-height: 1;
+    line-height: 1.05;
+    
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    -webkit-text-stroke: 3px var(--bg-primary);
 }
 
 .copiedMessage {

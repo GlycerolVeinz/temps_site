@@ -1,13 +1,9 @@
-/* Page Component Styles */
-
-/* Main container */
 .pageContainer {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
 }
 
-/* Menu toggle button */
 .menuToggleButton {
     position: fixed;
     top: 1rem;
@@ -40,7 +36,6 @@
     color: var(--text-primary);
 }
 
-/* Landing section */
 .landingSection {
     height: 100vh;
     position: relative;
@@ -62,12 +57,11 @@
     align-items: center;
     justify-content: center;
     z-index: 20;
-    gap: 0;
+    gap: 1rem;
 }
 
-/* Content container */
 .contentContainer {
-    max-width: 1280px;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
