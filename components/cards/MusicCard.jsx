@@ -13,10 +13,7 @@ const MusicSongsList = styled.ul.attrs({ className: styles.musicSongsList })``;
 const MusicSongItem = styled.li.attrs({ className: `${styles.musicSongItem} ${textStyles.normalText}` })``;
 const MusicTitle = styled.h3.attrs({ className: textStyles.headerText })``;
 
-/**
- * Music Card Component
- * Displays music cover and song list with square images
- */
+
 export default function MusicCard({ ep }) {
   const epId = `ep-${ep.title.toLowerCase().replace(/\s+/g, '-')}`;
 

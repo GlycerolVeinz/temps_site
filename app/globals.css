@@ -1,15 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Temporary Friends Custom Font */
+@font-face {
+  font-family: 'TempsFont';
+  src: url('/fonts/temps_font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Temporary Friends Regular Font */
+@font-face {
+  font-family: 'TempsFontRegular';
+  src: url('/fonts/temps_font_regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Fonts */
+  --font-temps: 'TempsFont', Arial, Helvetica, sans-serif;
+  --font-temps-regular: 'TempsFontRegular', Arial, Helvetica, sans-serif;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Background colors */
+  --bg-primary: #0a0a09;
+  --bg-secondary: #1c1917;
+  --bg-highlight: #ea580c;
+  --bg-card: #1e293be6;
+  --bg-warning: #713f12;
+
+  /* Hover colors */
+  --bg-hover-primary: #27272a;
+  --bg-hover-accent: #c2410c;
+
+  /* Border colors */
+  --border-accent: #f97316;
+  
+  /* Text colors */
+  --text-primary: #fafaf9;
+  --text-secondary: #d6d3d1;
+  --text-muted: #a8a29e;
+  --text-link: #f97316;
+  --text-hover: #f8b967;
+  --text-success: #4ade80;
+  --text-warning: #fbbf24;
+
+  /* Legacy/deprecated - keeping for backwards compatibility */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +65,11 @@
 body {
   background: transparent;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-temps-regular);
+}
+
+/* Band Name Custom Font Styling */
+.band-name-font {
+  font-family: var(--font-temps);
+  letter-spacing: 0.02em; /* Slight spacing for better readability */
 }

@@ -4,7 +4,7 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
     gap: 1rem;
 }
 
@@ -12,6 +12,7 @@
     background-color: var(--bg-secondary);
     padding: 1rem;
     border-radius: 0.5rem;
+    position: relative; /* Create positioning context for warning badge */
 }
 
 .platformHeader {
@@ -34,11 +35,14 @@
 }
 
 .warningBadge {
+    position: absolute;  /* Remove from layout flow */
+    top: 1rem;           /* Account for card padding */
+    right: 1rem;         /* Account for card padding */
     background-color: var(--bg-warning);
     padding: 0.27rem;
     border-radius: 5rem;
     cursor: help;
-    position: relative;
+    z-index: 5;          /* Above card content */
 }
 
 .warningBadge::after {
@@ -53,7 +57,9 @@
     border-radius: 0.5rem;
     border: 1px solid var(--text-warning);
 
-    white-space: nowrap;
+    max-width: 12rem;
+    width: max-content;
+    white-space: no-wrap;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
@@ -62,6 +68,12 @@
 }
 
 .warningBadge:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.warningBadge:active::after {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s, visibility 0.3s;

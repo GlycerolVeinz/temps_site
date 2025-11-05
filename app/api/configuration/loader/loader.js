@@ -19,22 +19,6 @@ export async function loadConfiguration() {
 
         // Transform the data to match the expected format
         const configuration = {
-            COLOR_THEME: {
-                bgPrimary: "bg-stone-950",
-                bgSecondary: "bg-stone-900",
-                bgHighlight: "bg-orange-600",
-                textPrimary: "text-stone-50",
-                textSecondary: "text-stone-300",
-                textMuted: "text-stone-400",
-                textAccent: "text-orange-400",
-                textSuccess: "text-green-400",
-                borderAccent: "border-orange-500",
-                hoverBg: "hover:bg-stone-800",
-                hoverBgAccent: "hover:bg-orange-700",
-                hoverUnderline: "hover:underline",
-                overlayDark: "bg-stone-950 bg-opacity-80",
-                cardBg: "bg-stone-900 bg-opacity-90"
-            },
             ENV: {
                 BAND_NAME: "Temporary Friends",
                 BACKGROUND_IMAGE: "/group_images/_DSC0670.jpg",
@@ -95,22 +79,6 @@ export async function loadConfiguration() {
         
         // Return fallback configuration with sample data
         const fallbackConfiguration = {
-            COLOR_THEME: {
-                bgPrimary: "bg-stone-950",
-                bgSecondary: "bg-stone-900",
-                bgHighlight: "bg-orange-600",
-                textPrimary: "text-stone-50",
-                textSecondary: "text-stone-300",
-                textMuted: "text-stone-400",
-                textAccent: "text-orange-400",
-                textSuccess: "text-green-400",
-                borderAccent: "border-orange-500",
-                hoverBg: "hover:bg-stone-800",
-                hoverBgAccent: "hover:bg-orange-700",
-                hoverUnderline: "hover:underline",
-                overlayDark: "bg-stone-950 bg-opacity-80",
-                cardBg: "bg-stone-900 bg-opacity-90"
-            },
             ENV: {
                 BAND_NAME: "Temporary Friends",
                 BACKGROUND_IMAGE: "/group_images/_DSC0670.jpg",

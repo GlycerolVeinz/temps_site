@@ -84,6 +84,16 @@
     margin: 1rem 0;
 }
 
+.bandNameText {
+    font-size: 18.5vw;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1;
+}
+
 .copiedMessage {
     color: var(--text-success);
     font-size: 0.875rem;

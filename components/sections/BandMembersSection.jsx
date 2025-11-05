@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const BandMembersContainer = styled.div.attrs({ className: styles.bandMembersContainer })``;
 
+
 export default function BandMembersSection({ members }) {
 
   return (

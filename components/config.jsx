@@ -5,7 +5,6 @@
 import configData from '../public/config/configuration.json';
 
 // Extract configurations from the JSON file
-export const COLOR_THEME = configData.COLOR_THEME;
 export const ENV = configData.ENV;
 export const EPS = configData.EPS;
 export const SECTIONS = configData.SECTIONS;

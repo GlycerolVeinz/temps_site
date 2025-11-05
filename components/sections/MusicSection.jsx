@@ -6,10 +6,11 @@ import styles from '@/components/styles/module/Music.module.css';
 const MusicSectionContainer = styled.section.attrs({ className: styles.musicSectionContainer })``;
 
 export default function MusicSection({ music }) {
+    
     return (
         <MusicSectionContainer>
             {music.map((ep) => (
-                <MusicCard key={ep.title} ep={ep} />
+                <MusicCard key={ep.title} ep={ep} /> // TODO change order of songs in split second
             ))}
         </MusicSectionContainer>
     );

@@ -1,0 +1,74 @@
+/* Page Component Styles */
+
+/* Main container */
+.pageContainer {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/* Menu toggle button */
+.menuToggleButton {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menuToggleIcon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--bg-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuToggleLogo {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+}
+
+.menuToggleFallbackIcon {
+    color: var(--text-primary);
+}
+
+/* Landing section */
+.landingSection {
+    height: 100vh;
+    position: relative;
+}
+
+.backgroundImage {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
+}
+
+.landingContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    gap: 0;
+}
+
+/* Content container */
+.contentContainer {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
