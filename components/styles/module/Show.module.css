@@ -32,9 +32,18 @@
 
 
 .showDateTime {
-    text-align: right;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
 }
 
+@media 
+(min-width: 685px) {
+    .showDateTime {
+        text-align: right;
+    }
+}
 
 
 .showActions {
