@@ -64,7 +64,7 @@
     background-position: center;
     background-size: cover;
     z-index: 1;
-    filter: grayscale(100%) contrast(110%) blur(1px) brightness(0.9);
+    filter: grayscale(100%) contrast(110%) blur(2px) brightness(0.9);
 }
 
 .landingContent {

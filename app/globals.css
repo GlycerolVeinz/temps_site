@@ -1,4 +1,3 @@
-/* Temporary Friends Custom Font */
 @font-face {
   font-family: 'TempsFont';
   src: url('/fonts/temps_font.woff2') format('woff2');
@@ -7,7 +6,6 @@
   font-display: swap;
 }
 
-/* Temporary Friends Regular Font */
 @font-face {
   font-family: 'TempsFontRegular';
   src: url('/fonts/temps_font_regular.woff2') format('woff2');
@@ -17,7 +15,6 @@
 }
 
 :root {
-  /* Fonts */
   --font-temps: 'TempsFont', Arial, Helvetica, sans-serif;
   --font-temps-regular: 'TempsFontRegular', Arial, Helvetica, sans-serif;
 }
@@ -78,7 +75,7 @@
   --border-accent: var(--colors-brand-500);
   
   /* Text colors */
-  --text-primary: var(--colors-secondary-200);
+  --text-primary: var(--colors-secondary-300);
   --text-secondary: var(--colors-secondary-300);
   --text-muted: var(--colors-secondary-400);
   --text-link: var(--colors-brand-600);
@@ -94,8 +91,7 @@ body {
   font-family: var(--font-temps-regular);
 }
 
-/* Band Name Custom Font Styling */
 .band-name-font {
   font-family: var(--font-temps);
-  letter-spacing: 0.02em; /* Slight spacing for better readability */
+  letter-spacing: 0.02em;
 }
