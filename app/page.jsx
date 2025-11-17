@@ -25,6 +25,8 @@ const MenuToggleIcon = styled.div.attrs({ className: pageStyles.menuToggleIcon }
 const MenuToggleLogo = styled.img.attrs({ className: pageStyles.menuToggleLogo })``;
 const LandingSection = styled.section.attrs({ className: pageStyles.landingSection })``;
 const BackgroundImage = styled(Image).attrs({ className: pageStyles.backgroundImage })``;
+const BackgroundImageWrapper = styled.div.attrs({ className: pageStyles.backgroundImageWrapper })``;
+
 const LandingContent = styled.div.attrs({ className: pageStyles.landingContent })``;
 const BandName = styled.h1.attrs({ className: `${textStyles.bandNameText} band-name-font` })``;
 const ContentSection = styled.section.attrs({ className: pageStyles.contentContainer })``;
@@ -33,17 +35,26 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [copiedLink, setCopiedLink] = useState("");
+  const [isPortrait, setIsPortrait] = useState(false);
   const landingRef = useRef(null);
 
   console.log("Background:", ENV.BACKGROUND_IMAGE);
 
-  // Set mounted state to true when component mounts
   useEffect(() => {
     setMounted(true);
 
     if (typeof document !== 'undefined') {
       document.body.setAttribute('suppresshydrationwarning', 'true');
     }
+
+    const checkOrientation = () => {
+      setIsPortrait(window.matchMedia("(orientation: portrait)").matches);
+    };
+    
+    checkOrientation();
+    window.addEventListener('resize', checkOrientation);
+    
+    return () => window.removeEventListener('resize', checkOrientation);
   }, []);
 
   const handleNavigate = (sectionId) => {
@@ -104,15 +115,15 @@ export default function Home() {
       />
 
       <LandingSection id="landing" ref={landingRef}>
-        {ENV.BACKGROUND_IMAGE && (
-          <BackgroundImage
-            src={ENV.BACKGROUND_IMAGE}
-            layout="fill"
-            objectFit="cover"
-            alt="Band Background"
-          />
-        )}
-
+        <BackgroundImageWrapper>
+        <BackgroundImage
+          src={isPortrait ? ENV.BACKGROUND_IMAGE_PORTRAIT : ENV.BACKGROUND_IMAGE_LANDSCAPE}
+          layout="fill"
+          objectFit="cover"
+          alt="Band Background"
+        />
+        </BackgroundImageWrapper>
+      
         <LandingContent>
           <BandName>Temporary</BandName>
           <BandName>Friends</BandName>
@@ -127,7 +138,6 @@ export default function Home() {
 
         <SectionTitle id="shows" title="Upcoming Shows"/>
         <UpcomingShowsSection shows={ENV.PLATFORMS.shows}/>
-        <Note>Note: Date format is DD.MM YYYY</Note>
 
         <SectionTitle id="social" title="Social Media"/>
         <PlatformsSection links={ENV.PLATFORMS.social} onCopy={copyToClipboard} copiedLink={copiedLink} />

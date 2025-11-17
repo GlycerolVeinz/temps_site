@@ -13,10 +13,6 @@ const CloseButton = styled.button.attrs({ className: `${buttonStyles.closeButton
 const MenuItems = styled.div.attrs({ className: styles.menuItems })``;
 const MenuItem = styled.div.attrs({ className: `${styles.menuItem} ${textStyles.menuLinkText}` })``;
 
-/**
- * Navigation Menu Component
- * Sliding sidebar navigation
- */
 export default function NavigationMenu({ sections, onNavigate, isOpen, onClose }) {
   return (
     <MenuContainer isOpen={isOpen}>

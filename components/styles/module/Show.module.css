@@ -1,19 +1,21 @@
-/* Show Component Styles */
 .showsContainer {
-    padding: 1rem;
     border-radius: 0.5rem;
 }
 
 .showsGrid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
     gap: 1rem;
+    width: 100%;
 }
 
 .showCardContainer {
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: var(--bg-secondary);
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .showHeader {
@@ -28,8 +30,6 @@
     flex-direction: column;
     gap: 0.5rem;
 }
-
-
 
 .showDateTime {
     display: flex;
@@ -61,7 +61,6 @@
 
 .venueTicketsOnly {
     display: inline-block;
-    padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     background-color: var(--bg-secondary);
 }

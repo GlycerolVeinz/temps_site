@@ -2,6 +2,7 @@
     background-color: var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
+    min-width: 100vw;
 }
 
 .menuToggleButton {
@@ -41,12 +42,29 @@
     position: relative;
 }
 
+.backgroundImageWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.backgroundImageWrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-image-overlay-neutral);
+    mix-blend-mode: color;
+    z-index: 2;
+    pointer-events: none;
+}
+
 .backgroundImage {
     position: absolute;
     inset: 0;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: 1;
+    filter: grayscale(100%) contrast(110%) blur(1px) brightness(0.9);
 }
 
 .landingContent {

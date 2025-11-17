@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Copy } from 'lucide-react';
 import styled from 'styled-components';
 import styles from '@/components/styles/module/Platform.module.css';
@@ -17,15 +17,23 @@ const CopiedBadge = styled.div.attrs({ className: `${styles.copiedBadge} ${textS
 
 const WarningText = styled.span.attrs({ className: textStyles.warningText })``;
 
-/**
- * Platform Card Component
- * Displays platform information with link and copy functionality
- */
 export default function PlatformCard({
   platform,
   onCopy,
   copiedLink
 }) {
+  const warningRef = useRef(null);
+
+  const handleWarningMouseEnter = (e) => {
+    if (warningRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const tooltip = window.getComputedStyle(warningRef.current, '::after');
+      
+      warningRef.current.style.setProperty('--tooltip-left', `${rect.left + rect.width / 2}px`);
+      warningRef.current.style.setProperty('--tooltip-top', `${rect.top}px`);
+    }
+  };
+
   return (
     <PlatformCardContainer id={platform.id}>
       <PlatformHeader>
@@ -33,7 +41,10 @@ export default function PlatformCard({
           {platform.title}
         </PlatformTitle>
         {platform.hasWrongAssociation && (
-          <WarningBadge>
+          <WarningBadge 
+            ref={warningRef}
+            onMouseEnter={handleWarningMouseEnter}
+          >
             <WarningText>⚠️ Name Clash</WarningText>
           </WarningBadge>
         )}

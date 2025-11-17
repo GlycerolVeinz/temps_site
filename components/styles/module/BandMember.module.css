@@ -19,12 +19,32 @@
     max-height: 22rem;
 }
 
-.memberImage {
+.memberImageWrapper {
+    position: relative;
     margin-bottom: 0.75rem;
     width: 10rem;
     height: 10rem;
-    object-fit: cover;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.memberImageWrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-image-overlay-brand);
+    mix-blend-mode: hue;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
 }
 
 .memberInfo {

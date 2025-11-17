@@ -4,6 +4,7 @@ import styles from '@/components/styles/module/BandMember.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 
 const MemberCardContainer = styled.div.attrs({ className: styles.memberCardContainer })``;
+const MemberImageWrapper = styled.div.attrs({ className: styles.memberImageWrapper })``;
 const MemberImage = styled.img.attrs({ className: styles.memberImage })``;
 const MemberInfo = styled.div.attrs({ className: styles.memberInfo })``;
 const MemberName = styled.h3.attrs({ className: textStyles.headerText })``;
@@ -16,7 +17,9 @@ export default function BandMemberCard({ member }) {
 
   return (
     <MemberCardContainer id={memberId}>
-      <MemberImage src={member.photo} alt={`${member.firstName} ${member.lastName}`} />
+      <MemberImageWrapper>
+        <MemberImage src={member.photo} alt={`${member.firstName} ${member.lastName}`} />
+      </MemberImageWrapper>
       <MemberInfo>
         <MemberName>{member.firstName} {member.lastName}</MemberName>
         <MemberInstrument>{member.instrument}</MemberInstrument>

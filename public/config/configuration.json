@@ -1,8 +1,8 @@
 {
   "ENV": {
     "BAND_NAME": "Temporary Friends",
-    "BACKGROUND_IMAGE_CP": "/group_images/background.jpg",
-    "BACKGROUND_IMAGE" : "/group_images/_DSC0670.jpg",
+    "BACKGROUND_IMAGE_PORTRAIT": "/group_images/background_portrait.webp",
+    "BACKGROUND_IMAGE_LANDSCAPE": "/group_images/background_landscape.webp",
     "MENU_LOGO": "group_images/logo.svg",
     "BAND_MEMBERS": [
       {
@@ -11,7 +11,7 @@
         "instrument": "Vocals/Guitar",
         "instagram": "m_kolecko",
         "contactEmail": "matous.kostkan@gmail.com",
-        "photo": "/group_images/profile_pictures/matous.webp"
+        "photo": "/group_images/profile_pictures/matoush.webp"
       },
       {
         "firstName": "Matty",
@@ -27,7 +27,7 @@
         "instrument": "Bass",
         "instagram": "honzak0marek",
         "contactEmail": "honza5002@gmail.com",
-        "photo": "/group_images/profile_pictures/honza.webp"
+        "photo": "/group_images/profile_pictures/jan.webp"
       },
       {
         "firstName": "David",

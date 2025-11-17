@@ -61,7 +61,7 @@ export default function ShowCard({ show, copiedLink, onCopyMap }) {
           </TicketButton>
         ) : (
           <VenueTicketsOnly>
-            Tickets available at venue
+          Tickets available at venue
           </VenueTicketsOnly>
         )}
       </ShowActions>

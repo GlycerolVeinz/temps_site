@@ -1,18 +1,27 @@
 
-/* Platform Component Styles */
 .platformContainer {
     margin-top: 4rem;
     margin-bottom: 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
     gap: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 41rem) {
+    .platformContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .platformCardContainer {
     background-color: var(--bg-secondary);
     padding: 1rem;
     border-radius: 0.5rem;
-    position: relative; /* Create positioning context for warning badge */
+    position: relative;
+    min-width: 0;  /* Prevent grid blowout */
+    box-sizing: border-box;  /* Include padding in width calculation */
+    overflow-wrap: break-word;  /* Break long words */
 }
 
 .platformHeader {
@@ -35,22 +44,22 @@
 }
 
 .warningBadge {
-    position: absolute;  /* Remove from layout flow */
-    top: 1rem;           /* Account for card padding */
-    right: 1rem;         /* Account for card padding */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     background-color: var(--bg-warning);
     padding: 0.27rem;
     border-radius: 5rem;
     cursor: help;
-    z-index: 5;          /* Above card content */
+    z-index: 5;
 }
 
 .warningBadge::after {
     content: "This platform may mix our music with other artists using the same name.";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    left: var(--tooltip-left, 50%);
+    top: var(--tooltip-top, 0);
+    transform: translate(-50%, calc(-100% - 0.5rem));
     background-color: var(--bg-primary);
     color: var(--text-warning);
     padding: 0.5rem;
@@ -59,24 +68,19 @@
 
     max-width: 12rem;
     width: max-content;
-    white-space: no-wrap;
+    white-space: nowrap;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s, visibility 0.3s;
-    z-index: 10;
-    margin-bottom: 0.25rem;
+    z-index: 1000;
 }
 
-.warningBadge:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
+.warningBadge:hover::after,
 .warningBadge:active::after {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: auto;
 }
 
 .copiedBadge {
