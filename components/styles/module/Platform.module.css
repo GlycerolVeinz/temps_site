@@ -3,7 +3,7 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 50% - 0.5rem, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(max(50% - 0.5rem, min(100%, 20rem)), 1fr));
     gap: 1rem;
     width: 100%;
 }
@@ -13,9 +13,9 @@
     padding: 1rem;
     border-radius: 0.5rem;
     position: relative;
-    min-width: 0;  /* Prevent grid blowout */
-    box-sizing: border-box;  /* Include padding in width calculation */
-    overflow-wrap: break-word;  /* Break long words */
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .platformHeader {

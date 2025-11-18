@@ -5,7 +5,7 @@
 
 .showsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 50% - 0.5rem, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(max(50% - 0.5rem, min(100%, 20rem)), 1fr));
     gap: 1rem;
     width: 100%;
 }
