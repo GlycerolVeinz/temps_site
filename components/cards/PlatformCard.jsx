@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Copy } from 'lucide-react';
 import styled from 'styled-components';
 import styles from '@/components/styles/module/Platform.module.css';
@@ -22,18 +22,6 @@ export default function PlatformCard({
   onCopy,
   copiedLink
 }) {
-  const warningRef = useRef(null);
-
-  const handleWarningMouseEnter = (e) => {
-    if (warningRef.current) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const tooltip = window.getComputedStyle(warningRef.current, '::after');
-      
-      warningRef.current.style.setProperty('--tooltip-left', `${rect.left + rect.width / 2}px`);
-      warningRef.current.style.setProperty('--tooltip-top', `${rect.top}px`);
-    }
-  };
-
   return (
     <PlatformCardContainer id={platform.id}>
       <PlatformHeader>
@@ -41,10 +29,7 @@ export default function PlatformCard({
           {platform.title}
         </PlatformTitle>
         {platform.hasWrongAssociation && (
-          <WarningBadge 
-            ref={warningRef}
-            onMouseEnter={handleWarningMouseEnter}
-          >
+          <WarningBadge>
             <WarningText>⚠️ Name Clash</WarningText>
           </WarningBadge>
         )}

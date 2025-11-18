@@ -141,23 +141,23 @@
       "shows": [
         {
           "id" : 0,
-          "venue" : "\"Křest\" - \"Int the split second\" EP release",
-          "location" : "Klub FAMU, Prague, Czech Republic",
-          "date" : "02.08 2025",
-          "time" : "19:30",
+          "venue" : "Temporary Friends, Lomoz, Hansen",
+          "location" : "Klubovna, Prague, Czech Republic",
+          "date" : "28.Nov 2025",
+          "time" : "19:00",
           "ticketLink" : null,
-          "eventLink" : "https://www.instagram.com/p/DMVVdlDp954/",
-          "googleMapsUrl" : "https://maps.app.goo.gl/n9pyr4uJACkZD5vq6"
+          "eventLink" : "https://www.instagram.com/p/DRAAxrcjDAA/?img_index=1",
+          "googleMapsUrl" : "https://maps.app.goo.gl/6NhayxFRWZPREgJL8"
         },
         {
           "id" : 1,
-          "venue" : "Temporary Friends + Nostra + Lomoz",
-          "location" : "Café V lese, Prague, Czech Republic",
-          "date" : "16.08 2025",
-          "time" : "19:30",
-          "ticketLink" : "https://goout.net/en/temporary-friends%2Bnostra%2Blomoz/szlnnwx/",
-          "eventLink" : "https://www.facebook.com/events/1091604166258300/?active_tab=about",
-          "googleMapsUrl" : "https://maps.app.goo.gl/Li8qRqpNHT6RRNmz7"
+          "venue" : "Laundromat Chicks + Cold Meat Party + Temporary Friends",
+          "location" : "Kampus Hybernská, Prague, Czech Republic",
+          "date" : "29.Nov 2025",
+          "time" : "19:00",
+          "ticketLink" : "https://goout.net/cs/laundromat-chicks%2Bcold-meat-party%2Btemporary-friends/szboocy/",
+          "eventLink" : "https://www.facebook.com/events/1424855051943584",
+          "googleMapsUrl" : "https://maps.app.goo.gl/VYoHU8Ei8aaaqvJt5"
         }
     ]
     }

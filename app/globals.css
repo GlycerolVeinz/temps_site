@@ -65,7 +65,7 @@
   --bg-image-overlay-neutral: var(--colors-neutral-800);
   --bg-highlight: var(--colors-brand-500);
   --bg-button: var(--colors-neutral-700);
-  --bg-warning: var(--colors-brand-300);
+  --bg-warning: var(--colors-brand-800);
 
   /* Hover colors */
   --bg-hover-primary: var(--colors-neutral-900);
@@ -81,7 +81,7 @@
   --text-link: var(--colors-brand-600);
   --text-hover: var(--colors-brand-200);
   --text-success: var(--colors-success);
-  --text-warning: var(--colors-brand-300);
+  --text-warning: var(--colors-secondary-200);
 }
 
 body {

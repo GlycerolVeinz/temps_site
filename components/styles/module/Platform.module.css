@@ -40,7 +40,7 @@
 .warningBadge {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 1.5rem;
     background-color: var(--bg-warning);
     padding: 0.27rem;
     border-radius: 5rem;
@@ -50,19 +50,20 @@
 
 .warningBadge::after {
     content: "This platform may mix our music with other artists using the same name.";
-    position: fixed;
-    left: var(--tooltip-left, 50%);
-    top: var(--tooltip-top, 0);
-    transform: translate(-50%, calc(-100% - 0.5rem));
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.5rem);
     background-color: var(--bg-primary);
     color: var(--text-warning);
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
     border: 1px solid var(--text-warning);
 
-    max-width: 12rem;
+    max-width: min(20rem, calc(100vw - 3rem));
     width: max-content;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
