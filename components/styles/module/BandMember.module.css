@@ -1,0 +1,55 @@
+.bandMembersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: 1.5rem;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    border-radius: 0.5rem;
+}
+
+.memberCardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-height: 22rem;
+}
+
+.memberImageWrapper {
+    position: relative;
+    margin-bottom: 0.75rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.memberImageWrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-image-overlay-brand);
+    mix-blend-mode: hue;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
+}
+
+.memberInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}

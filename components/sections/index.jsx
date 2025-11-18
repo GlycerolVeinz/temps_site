@@ -1,12 +1,10 @@
-/**
- * Export all components from a single file
- * Makes importing multiple components easier
- */
-export { default as PlatformLink } from './PlatformLink';
-export { default as BandMemberCard } from './BandMemberCard';
-export { default as EPCard } from './EPCard';
-export { default as ShowCard } from './ShowCard';
-export { default as UpcomingShows } from './UpcomingShows';
-export { default as SectionHeader } from './SectionHeader';
+
+export { default as PlatformStreamingCard } from './LinksSection';
+export { default as BandMembersSection } from './BandMembersSection';
+export { default as MusicSection } from './MusicSection';
+export { default as ShowCard } from '../cards/ShowCard';
+export { default as UpcomingShowsSection } from './UpcomingShows';
+export { default as SectionTitle } from './SectionTitle';
 export { default as NavigationMenu } from './NavigationMenu';
+export { default as PlatformsSection } from './PlatformsSection';
 

@@ -1,0 +1,123 @@
+.titleText {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.headerText {
+    margin: 0.1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.headerLinkText {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+.headerLinkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.normalText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-primary);
+}
+
+.menuLinkText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-primary)
+}
+
+.menuLinkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.normalTextSecondary {
+    font-size: 0.98rem;
+    margin: 0.1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.linkText {
+    font-size: 1rem;
+    margin: 0.1rem;
+    color: var(--text-link);
+}
+
+.linkText:hover {
+    text-decoration: underline;
+    color: var(--text-hover);
+}
+
+.warningText {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    color: var(--text-warning);
+    position: relative;
+    cursor: help;
+}
+
+.successText {
+    font-size: 0.875rem;
+    color: var(--text-success);
+}
+
+.noteText{
+    font-size: 0.875rem;
+    margin-top: 0.15rem;
+    color: var(--text-muted);
+}
+
+.footerText {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.bandNameText {
+    font-size: 18vw;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.05;
+
+    margin: 0;
+    
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.copiedMessage {
+    color: var(--text-success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

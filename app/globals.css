@@ -1,26 +1,97 @@
-@import "tailwindcss";
+@font-face {
+  font-family: 'TempsFont';
+  src: url('/fonts/temps_font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'TempsFontRegular';
+  src: url('/fonts/temps_font_regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-temps: 'TempsFont', Arial, Helvetica, sans-serif;
+  --font-temps-regular: 'TempsFontRegular', Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+--colors-brand-050 : #fdf1eb ;
+--colors-brand-100 : #fbe2d5 ;
+--colors-brand-200 : #f9d2be ;
+--colors-brand-300 : #f7c0a3 ;
+--colors-brand-400 : #ef824a ;
+--colors-brand-500 : #da520b ;
+--colors-brand-600 : #a93f09 ;
+--colors-brand-700 : #792e06 ;
+--colors-brand-800 : #451a04 ;
+--colors-brand-900 : #2e1102 ;
+--colors-brand-950 : #1d0b01 ;
+--colors-secondary-050 : #f9f2eb ;
+--colors-secondary-100 : #f3e5d6 ;
+--colors-secondary-200 : #edd6bf ;
+--colors-secondary-300 : #e5c6a5 ;
+--colors-secondary-400 : #be9971 ;
+--colors-secondary-500 : #977959 ;
+--colors-secondary-600 : #745d45 ;
+--colors-secondary-700 : #534231 ;
+--colors-secondary-800 : #2e251b ;
+--colors-secondary-900 : #1e1812 ;
+--colors-secondary-950 : #130f0b ;
+--colors-neutral-050 : #f3f3f4 ;
+--colors-neutral-100 : #e7e7e9 ;
+--colors-neutral-200 : #dadadd ;
+--colors-neutral-300 : #cbcbd0 ;
+--colors-neutral-400 : #9f9fa8 ;
+--colors-neutral-500 : #7d7d89 ;
+--colors-neutral-600 : #60606f ;
+--colors-neutral-700 : #444455 ;
+--colors-neutral-800 : #252539 ;
+--colors-neutral-900 : #181825 ;
+--colors-neutral-950 : #0f0f17 ;
+--colors-success : #22c55e ;
+}
+
+:root {
+  /* Background colors */
+  --bg-primary: var(--colors-neutral-950);
+  --bg-secondary: var(--colors-neutral-900);
+  --bg-image-overlay-brand: var(--colors-brand-800);
+  --bg-image-overlay-secondary: var(--colors-secondary-800);
+  --bg-image-overlay-neutral: var(--colors-neutral-800);
+  --bg-highlight: var(--colors-brand-500);
+  --bg-button: var(--colors-neutral-700);
+  --bg-warning: var(--colors-brand-800);
+
+  /* Hover colors */
+  --bg-hover-primary: var(--colors-neutral-900);
+  --bg-hover-accent: var(--colors-brand-600);
+
+  /* Border colors */
+  --border-accent: var(--colors-brand-500);
+  
+  /* Text colors */
+  --text-primary: var(--colors-secondary-300);
+  --text-secondary: var(--colors-secondary-300);
+  --text-muted: var(--colors-secondary-400);
+  --text-link: var(--colors-brand-600);
+  --text-hover: var(--colors-brand-200);
+  --text-success: var(--colors-success);
+  --text-warning: var(--colors-secondary-200);
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: transparent;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-temps-regular);
+}
+
+.band-name-font {
+  font-family: var(--font-temps);
+  letter-spacing: 0.02em;
 }

@@ -1,0 +1,86 @@
+.pageContainer {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.menuToggleButton {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menuToggleIcon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--bg-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuToggleLogo {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+}
+
+.menuToggleFallbackIcon {
+    color: var(--text-primary);
+}
+
+.landingSection {
+    height: 100vh;
+    position: relative;
+}
+
+.backgroundImageWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.backgroundImageWrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-image-overlay-neutral);
+    mix-blend-mode: color;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.backgroundImage {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    filter: grayscale(100%) contrast(110%) blur(2px) brightness(0.9);
+}
+
+.landingContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    gap: 1rem;
+}
+
+.contentContainer {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
