@@ -1,0 +1,85 @@
+
+.platformContainer {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 50% - 0.5rem, 100%), 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.platformCardContainer {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    min-width: 0;  /* Prevent grid blowout */
+    box-sizing: border-box;  /* Include padding in width calculation */
+    overflow-wrap: break-word;  /* Break long words */
+}
+
+.platformHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.platformContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.platformActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.warningBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background-color: var(--bg-warning);
+    padding: 0.27rem;
+    border-radius: 5rem;
+    cursor: help;
+    z-index: 5;
+}
+
+.warningBadge::after {
+    content: "This platform may mix our music with other artists using the same name.";
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.5rem);
+    background-color: var(--bg-primary);
+    color: var(--text-warning);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--text-warning);
+
+    max-width: min(20rem, calc(100vw - 3rem));
+    width: max-content;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
+
+.warningBadge:hover::after,
+.warningBadge:active::after {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.copiedBadge {
+    margin-top: 0.25rem;
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}

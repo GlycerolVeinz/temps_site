@@ -1,0 +1,72 @@
+.showsContainer {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.showsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 50% - 0.5rem, 100%), 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.showCardContainer {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-secondary);
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+.showHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.showDetails {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.showDateTime {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+@media 
+(min-width: 685px) {
+    .showDateTime {
+        text-align: right;
+    }
+}
+
+.showActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.showMapActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.venueTicketsOnly {
+    display: inline-block;
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+    background-color: var(--bg-secondary);
+}
+
+.noShowsMessage {
+    text-align: center;
+    padding: 2rem;
+}
