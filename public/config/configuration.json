@@ -135,7 +135,7 @@
           "id" : "facebook",
           "title" : "Facebook",
           "url" : "https://www.facebook.com/profile.php?id=61578486608821",
-          "linkText" : "Follow our facebook page" 
+          "linkText" : "Follow our facebook page"
         }
       ],
       "shows": [
@@ -159,7 +159,7 @@
           "eventLink" : "https://www.facebook.com/events/1424855051943584",
           "googleMapsUrl" : "https://maps.app.goo.gl/VYoHU8Ei8aaaqvJt5"
         }
-    ]
+      ]
     }
   },
 
