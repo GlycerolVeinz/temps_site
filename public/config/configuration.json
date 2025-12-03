@@ -141,22 +141,12 @@
       "shows": [
         {
           "id" : 0,
-          "venue" : "Temporary Friends, Lomoz, Hansen",
-          "location" : "Klubovna, Prague, Czech Republic",
-          "date" : "28.Nov 2025",
-          "time" : "19:00",
-          "ticketLink" : null,
-          "eventLink" : "https://www.instagram.com/p/DRAAxrcjDAA/?img_index=1",
-          "googleMapsUrl" : "https://maps.app.goo.gl/6NhayxFRWZPREgJL8"
-        },
-        {
-          "id" : 1,
-          "venue" : "Laundromat Chicks + Cold Meat Party + Temporary Friends",
+          "venue" : "LAST SHOW OF 2025",
           "location" : "Kampus Hybernská, Prague, Czech Republic",
-          "date" : "29.Nov 2025",
-          "time" : "19:00",
-          "ticketLink" : "https://goout.net/cs/laundromat-chicks%2Bcold-meat-party%2Btemporary-friends/szboocy/",
-          "eventLink" : "https://www.facebook.com/events/1424855051943584",
+          "date" : "11.Dec 2025",
+          "time" : "18:30",
+          "ticketLink" : "https://goout.net/en/hyb4-hudba-temporary-friends+loveletting+n1/szhqvdy/",
+          "eventLink" : "https://www.instagram.com/p/DRt79R_DMXq/",
           "googleMapsUrl" : "https://maps.app.goo.gl/VYoHU8Ei8aaaqvJt5"
         }
       ]
