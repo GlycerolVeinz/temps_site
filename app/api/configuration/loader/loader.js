@@ -13,7 +13,7 @@ export async function loadConfiguration() {
 
         return NextResponse.json(allShows);
     } catch (error) {
-        console.error("Error loading configuration:", error);
+        console.error("Error fetching configuration:", error);
         return NextResponse.json([], { status: 500 });
     } finally {
         if (client) {

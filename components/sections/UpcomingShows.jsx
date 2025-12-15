@@ -9,18 +9,18 @@ const NoShowsMessage = styled.p.attrs({ className: `${styles.noShowsMessage} ${t
 const ShowsGrid = styled.div.attrs({ className: styles.showsGrid })``;
 
 export default function UpcomingShowsSection({ shows }) {
-  const hasShows = shows && shows.length > 0;
-  
+  const hasShows = shows && shows.length > 0 && shows.some(show => show.dateTime && new Date(show.dateTime) >= new Date());
+
   return (
     <ShowsContainer>
       {hasShows ? (
         <ShowsGrid>
-          {shows.map(show => (
-            <ShowCard 
-              key={show._id} 
-              show={show}
-            />
-          ))}
+          {shows
+            .filter(show => show.dateTime && new Date(show.dateTime) >= new Date())
+            .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
+            .map(show => (
+              <ShowCard key={show._id} show={show}/>))
+          }
         </ShowsGrid>
       ) : (
         <NoShowsMessage>
