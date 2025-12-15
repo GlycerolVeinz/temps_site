@@ -52,6 +52,8 @@
     content: '';
     position: absolute;
     inset: 0;
+    background-position: center;
+    background-size: cover;
     background-color: var(--bg-image-overlay-neutral);
     mix-blend-mode: color;
     z-index: 2;

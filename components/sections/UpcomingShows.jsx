@@ -17,7 +17,7 @@ export default function UpcomingShowsSection({ shows }) {
         <ShowsGrid>
           {shows.map(show => (
             <ShowCard 
-              key={show.id} 
+              key={show._id} 
               show={show}
             />
           ))}

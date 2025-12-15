@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu } from 'lucide-react';
-import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ENV, EPS, SECTIONS } from '@/components/config';
@@ -24,7 +22,13 @@ const MenuToggleButton = styled.button.attrs({ className: pageStyles.menuToggleB
 const MenuToggleIcon = styled.div.attrs({ className: pageStyles.menuToggleIcon })``;
 const MenuToggleLogo = styled.img.attrs({ className: pageStyles.menuToggleLogo })``;
 const LandingSection = styled.section.attrs({ className: pageStyles.landingSection })``;
-const BackgroundImage = styled(Image).attrs({ className: pageStyles.backgroundImage })``;
+const BackgroundImage = styled.div.attrs({ className: pageStyles.backgroundImage })`
+  background-image : url(${ENV.BACKGROUND_IMAGE_LANDSCAPE});
+  @media (orientation: portrait) {
+    background-image : url(${ENV.BACKGROUND_IMAGE_PORTRAIT});
+  }
+`;
+
 const BackgroundImageWrapper = styled.div.attrs({ className: pageStyles.backgroundImageWrapper })``;
 
 const LandingContent = styled.div.attrs({ className: pageStyles.landingContent })``;
@@ -33,36 +37,35 @@ const ContentSection = styled.section.attrs({ className: pageStyles.contentConta
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [copiedLink, setCopiedLink] = useState("");
-  const [isPortrait, setIsPortrait] = useState(false);
-  const landingRef = useRef(null);
-
-  console.log("Background:", ENV.BACKGROUND_IMAGE);
+  const [shows, setShows] = useState([]);
+  const [isLoadingShows, setIsLoadingShows] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
-
-    if (typeof document !== 'undefined') {
-      document.body.setAttribute('suppresshydrationwarning', 'true');
-    }
-
-    const checkOrientation = () => {
-      setIsPortrait(window.matchMedia("(orientation: portrait)").matches);
-    };
+    let cancelled = false;
     
-    checkOrientation();
-    window.addEventListener('resize', checkOrientation);
+    (async () => {
+      try {
+        setIsLoadingShows(true);
+        const res = await fetch('/api/configuration', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!cancelled) setShows(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error('Shows fetch failed:', err);
+        if (!cancelled) setShows([]);
+      } finally {
+        if (!cancelled) setIsLoadingShows(false);
+      }
+    })();
     
-    return () => window.removeEventListener('resize', checkOrientation);
+    return () => { cancelled = true; };
   }, []);
 
   const handleNavigate = (sectionId) => {
     if (sectionId === 'landing') {
-      // Scroll to top for landing section
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Scroll to specific section
       const element = document.getElementById(sectionId);
       if (element) {
         const offsetPosition = element.offsetTop - 16;
@@ -83,11 +86,6 @@ export default function Home() {
       })
       .catch(err => console.error('Failed to copy: ', err));
   };
-
-  // Return null during server-side rendering to prevent hydration mismatch
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <PageContainer>
@@ -114,14 +112,9 @@ export default function Home() {
         onClose={() => setMenuOpen(false)}
       />
 
-      <LandingSection id="landing" ref={landingRef}>
+      <LandingSection id="landing">
         <BackgroundImageWrapper>
-        <BackgroundImage
-          src={isPortrait ? ENV.BACKGROUND_IMAGE_PORTRAIT : ENV.BACKGROUND_IMAGE_LANDSCAPE}
-          layout="fill"
-          objectFit="cover"
-          alt="Band Background"
-        />
+          <BackgroundImage alt="Band Background"/>
         </BackgroundImageWrapper>
       
         <LandingContent>
@@ -137,7 +130,11 @@ export default function Home() {
         <Note>Note: Our music may be found on other platforms as well, but we didn't find them all. If you find us on a platform not listed here, please let us know!</Note>
 
         <SectionTitle id="shows" title="Upcoming Shows"/>
-        <UpcomingShowsSection shows={ENV.PLATFORMS.shows}/>
+        {isLoadingShows ? (
+          <Note>Loading upcoming shows...</Note>
+        ) : (
+          <UpcomingShowsSection shows={shows}/>
+        )}
 
         <SectionTitle id="social" title="Social Media"/>
         <PlatformsSection links={ENV.PLATFORMS.social} onCopy={copyToClipboard} copiedLink={copiedLink} />

@@ -17,12 +17,28 @@ const TicketButton = styled.a.attrs({ className: `${buttonStyles.primaryButton} 
 const VenueTicketsOnly = styled.span.attrs({ className: `${styles.venueTicketsOnly} ${textStyles.normalText}` })``;
 const CopiedMessage = styled.span.attrs({ className: textStyles.copiedMessage })``;
 
-export default function ShowCard({ show, copiedLink, onCopyMap }) {
+const formatDate = (iso) => {
+  if (!iso) return 'TBA';
+  const d = new Date(iso);
+  return new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'medium'
+  }).format(d);
+} 
+
+const formatTime = (iso) => {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return new Intl.DateTimeFormat(undefined, {
+    timeStyle: 'short'
+  }).format(d);
+}
+
+export default function ShowCard({ show, copiedLink }) {
   return (
     <ShowCardContainer>
       <ShowDateTime>
-          <ShowDate>{show.date}</ShowDate>
-          <ShowTime>{show.time}</ShowTime>
+          <ShowDate>{formatDate(show.dateTime)}</ShowDate>
+          <ShowTime>{formatTime(show.dateTime)}</ShowTime>
       </ShowDateTime>
       <ShowHeader>
         <ShowDetails>
