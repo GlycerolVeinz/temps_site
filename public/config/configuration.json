@@ -89,7 +89,7 @@
           "title": "Deezer",
           "url": "https://www.deezer.com/en/album/723753291",
           "linkText": "Listen on Deezer",
-          "hasWrongAssociation": true
+          "hasWrongAssociation": false
         },
         {
           "id": "amazon",
