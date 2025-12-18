@@ -7,7 +7,7 @@ import buttonStyles from '@/components/styles/globals/button.module.css';
 const ShowCardContainer = styled.div.attrs({ className: styles.showCardContainer })``;
 const ShowHeader = styled.div.attrs({ className: styles.showHeader })``;
 const ShowDetails = styled.div.attrs({ className: styles.showDetails })``;
-const VenueLink = styled.a.attrs({ className: textStyles.headerLinkText })``;
+const EventLink = styled.a.attrs({ className: textStyles.headerLinkText })``;
 const LocationLink = styled.a.attrs({ className: textStyles.linkText })``;
 const ShowDateTime = styled.div.attrs({ className: styles.showDateTime })``;
 const ShowDate = styled.p.attrs({ className: textStyles.headerText })``;
@@ -33,7 +33,7 @@ const formatTime = (iso) => {
   }).format(d);
 }
 
-export default function ShowCard({ show, copiedLink }) {
+export default function ShowCard({ show }) {
   return (
     <ShowCardContainer>
       <ShowDateTime>
@@ -42,26 +42,23 @@ export default function ShowCard({ show, copiedLink }) {
       </ShowDateTime>
       <ShowHeader>
         <ShowDetails>
-          <VenueLink
-            href={show.eventLink || "#"}
+          <EventLink
+            href={show.showLink || "#"}
             target="_blank"
             rel="noopener noreferrer"
             title="View event details"
           >
-            {show.venue}
-          </VenueLink>
+            {show.showName}
+          </EventLink>
           <div>
             <LocationLink
-              href={show.googleMapsUrl}
+              href={show.googleMapsLink}
               target="_blank"
               rel="noopener noreferrer"
               title="Open in Google Maps"
             >
-              {show.location}
+              {show.venueName}
             </LocationLink>
-            {copiedLink === show.googleMapsUrl && (
-              <CopiedMessage>Map link copied!</CopiedMessage>
-            )}
           </div>
         </ShowDetails>
         
