@@ -46,7 +46,6 @@
         "photo": "/group_images/profile_pictures/vitek.webp"
       }
     ],
-
     "PLATFORMS": {
       "streaming": [
         {
@@ -71,16 +70,16 @@
           "hasWrongAssociation": false
         },
         {
-          "id":"tidal",
+          "id": "tidal",
           "title": "Tidal",
-          "url":"https://listen.tidal.com/artist/55276340",
+          "url": "https://listen.tidal.com/artist/55276340",
           "linkText": "Listen on Tidal",
           "hasWrongAssociation": false
         },
         {
-          "id":"yandex",
+          "id": "yandex",
           "title": "Yandex Music",
-          "url":"https://music.yandex.ru/artist/23902303?utm_medium=copy_link",
+          "url": "https://music.yandex.ru/artist/23902303?utm_medium=copy_link",
           "linkText": "Listen on Yandex Music",
           "hasWrongAssociation": false
         },
@@ -120,28 +119,38 @@
           "linkText": "Contact us via Email"
         },
         {
-          "id" : "goout",
-          "title" : "GoOut",
-          "url" : "https://goout.net/en/temporary-friends/pzfuapg/",
-          "linkText" : "Check us out on GoOut"
+          "id": "goout",
+          "title": "GoOut",
+          "url": "https://goout.net/en/temporary-friends/pzfuapg/",
+          "linkText": "Check us out on GoOut"
         },
         {
           "id": "tiktok",
-          "title" : "TikTok",
-          "url" : "http://tiktok.com/@temporary.friends.band",
-          "linkText" : "Follow us on TikTok"
+          "title": "TikTok",
+          "url": "http://tiktok.com/@temporary.friends.band",
+          "linkText": "Follow us on TikTok"
         },
         {
-          "id" : "facebook",
-          "title" : "Facebook",
-          "url" : "https://www.facebook.com/profile.php?id=61578486608821",
-          "linkText" : "Follow our facebook page"
+          "id": "facebook",
+          "title": "Facebook",
+          "url": "https://www.facebook.com/profile.php?id=61578486608821",
+          "linkText": "Follow our facebook page"
         }
       ],
-      "shows": [ ]
+      "shows": [
+        {
+          "id": 1,
+          "date": "21. feb 2026",
+          "time": "19:00",
+          "eventLink" : "https://www.facebook.com/events/927350383568873?acontext=%7B%22event_action_history%22%3A[]%7D",
+          "venue": "Matouš's and Matty's Birthday Concert",
+          "googleMapsUrl": "https://maps.app.goo.gl/5DgMDcB2DtpBjBZG8",
+          "location" : "Kulturní centrum Kaštan, Prague, Czech Republic",
+          "ticketLink": null
+        }
+      ]
     }
   },
-
   "EPS": [
     {
       "title": "Moved Me",
@@ -160,14 +169,13 @@
       ]
     },
     {
-      "title" : "Ashtray",
-      "cover" : "/group_images/albums/ashtray.webp",
-      "songs" : [
+      "title": "Ashtray",
+      "cover": "/group_images/albums/ashtray.webp",
+      "songs": [
         "Ashtray"
       ]
     }
   ],
-
   "SECTIONS": [
     {
       "id": "streaming",
