@@ -47,15 +47,24 @@ export default function Home() {
     (async () => {
       try {
         setIsLoadingShows(true);
-        const res = await fetch('/api/configuration', { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const res = await fetch('/api/shows', { cache: 'no-store' });
+        
+        if (!res.ok) 
+          throw new Error(`HTTP ${res.status}`);
+        
         const data = await res.json();
-        if (!cancelled) setShows(Array.isArray(data) ? data : []);
+        
+        if (!cancelled) 
+          setShows(data.success ? data.result : []);
       } catch (err) {
+        
         console.error('Shows fetch failed:', err);
-        if (!cancelled) setShows([]);
+        if (!cancelled) 
+          setShows([]);
+
       } finally {
-        if (!cancelled) setIsLoadingShows(false);
+        if (!cancelled) 
+          setIsLoadingShows(false);
       }
     })();
     
