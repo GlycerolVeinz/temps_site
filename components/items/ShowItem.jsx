@@ -3,28 +3,12 @@ import styles from '@/components/styles/module/Show.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
 
-const formatDate = (iso) => {
-  if (!iso) return 'TBA';
-  const d = new Date(iso);
-  return new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'medium'
-  }).format(d);
-};
-
-const formatTime = (iso) => {
-  if (!iso) return '';
-  const d = new Date(iso);
-  return new Intl.DateTimeFormat(undefined, {
-    timeStyle: 'short'
-  }).format(d);
-};
-
 export default function ShowItem({ show }) {
   return (
     <div className={styles.showCardContainer}>
       <div className={styles.showDateTime}>
-        <p className={textStyles.headerText}>{formatDate(show.dateTime)}</p>
-        <p className={textStyles.normalText}>{formatTime(show.dateTime)}</p>
+        <p className={textStyles.headerText}>{show.formattedDate}</p>
+        <p className={textStyles.normalText}>{show.formattedTime}</p>
       </div>
       <div className={styles.showHeader}>
         <div className={styles.showDetails}>
