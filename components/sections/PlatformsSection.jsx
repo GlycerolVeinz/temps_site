@@ -1,21 +1,16 @@
-import React from "react";
-import PlatformCard from "@/components/cards/PlatformCard";
-import styled from "styled-components";
+import React from 'react';
+import PlatformItem from '@/components/items/PlatformItem';
 import styles from '@/components/styles/module/Platform.module.css';
 
-const PlatformContainer = styled.section.attrs({ className: styles.platformContainer })``;
-
-export default function PlatformsSection({ links, onCopy, copiedLink }) {
+export default function PlatformsSection({ links }) {
   return (
-    <PlatformContainer>
-        {links.map(link => (
-          <PlatformCard
-            key={link.id}
-            platform={link}
-            onCopy={onCopy}
-            copiedLink={copiedLink}
-          />
-        ))}
-    </PlatformContainer>
+    <section className={styles.platformContainer}>
+      {links.map((link) => (
+        <PlatformItem
+          key={link.id}
+          platform={link}
+        />
+      ))}
+    </section>
   );
 }
