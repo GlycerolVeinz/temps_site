@@ -1,56 +1,48 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { Copy } from 'lucide-react';
-import styled from 'styled-components';
 import styles from '@/components/styles/module/Platform.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
+import { copyToClipboard } from '@/lib/clipboard';
 
-const PlatformCardContainer = styled.div.attrs({ className: styles.platformCardContainer })``;
-const PlatformHeader = styled.div.attrs({ className: styles.platformHeader })``;
-const PlatformTitle = styled.h3.attrs({ className: textStyles.headerText })``;
-const WarningBadge = styled.span.attrs({ className: styles.warningBadge })``;
-const PlatformContent = styled.div.attrs({ className: styles.platformContent })``;
-const PlatformActions = styled.div.attrs({ className: styles.platformActions })``;
-const PlatformLink = styled.a.attrs({ className: textStyles.linkText })``;
-const CopyButton = styled.button.attrs({ className: `${buttonStyles.copyButton} ${textStyles.normalText}` })``;
-const CopiedBadge = styled.div.attrs({ className: `${styles.copiedBadge} ${textStyles.copiedMessage}` })``;
 
-const WarningText = styled.span.attrs({ className: textStyles.warningText })``;
+export default function PlatformCard({ platform }) {
 
-export default function PlatformCard({
-  platform,
-  onCopy,
-  copiedLink
-}) {
+  const handleCopy = (text) => copyToClipboard(text, setCopiedLink);
+  const [copiedLink, setCopiedLink] = useState("");
+    
+
   return (
-    <PlatformCardContainer id={platform.id}>
-      <PlatformHeader>
-        <PlatformTitle>
+    <div className={styles.platformCardContainer} id={platform.id}>
+      <div className={styles.platformHeader}>
+        <h3 className={textStyles.headerText}>
           {platform.title}
-        </PlatformTitle>
+        </h3>
         {platform.hasWrongAssociation && (
-          <WarningBadge>
-            <WarningText>⚠️ Name Clash</WarningText>
-          </WarningBadge>
+          <span className={styles.warningBadge}>
+            <span className={textStyles.warningText}>⚠️ Name Clash</span>
+          </span>
         )}
-      </PlatformHeader>
-      <PlatformContent>
-        <PlatformLink
+      </div>
+      <div className={styles.platformContent}>
+        <a className={textStyles.linkText}
           href={platform.url}
           target="_blank"
           rel="noopener noreferrer"
         >
           {platform.linkText}
-        </PlatformLink>
-        <PlatformActions>
-          <CopyButton onClick={() => onCopy(platform.url)}>
+        </a>
+        <div className={styles.platformActions}>
+          <button className={`${buttonStyles.copyButton} ${textStyles.normalText}`} onClick={() => handleCopy(platform.url)}>
             <Copy size={16} />
-          </CopyButton>
-        </PlatformActions>
-      </PlatformContent>
+          </button>
+        </div>
+      </div>
       {copiedLink === platform.url && (
-        <CopiedBadge> Link copied! </CopiedBadge>
+        <div className={`${styles.copiedBadge} ${textStyles.copiedMessage}`}> Link copied! </div>
       )}
-    </PlatformCardContainer>
+    </div>
   );
 }

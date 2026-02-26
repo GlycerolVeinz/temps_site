@@ -6,7 +6,6 @@ import configData from '../public/config/configuration.json';
 
 // Extract configurations from the JSON file
 export const ENV = configData.ENV;
-export const EPS = configData.EPS;
 export const SECTIONS = configData.SECTIONS;
 
 // Export the entire config as default if needed
