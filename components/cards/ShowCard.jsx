@@ -1,70 +1,56 @@
 import React from 'react';
-import styled from 'styled-components';
 import styles from '@/components/styles/module/Show.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
 
-const ShowCardContainer = styled.div.attrs({ className: styles.showCardContainer })``;
-const ShowHeader = styled.div.attrs({ className: styles.showHeader })``;
-const ShowDetails = styled.div.attrs({ className: styles.showDetails })``;
-const VenueLink = styled.a.attrs({ className: textStyles.headerLinkText })``;
-const LocationLink = styled.a.attrs({ className: textStyles.linkText })``;
-const ShowDateTime = styled.div.attrs({ className: styles.showDateTime })``;
-const ShowDate = styled.p.attrs({ className: textStyles.headerText })``;
-const ShowTime = styled.p.attrs({ className: textStyles.normalText })``;
-const ShowActions = styled.div.attrs({ className: styles.showActions })``;
-const TicketButton = styled.a.attrs({ className: `${buttonStyles.primaryButton} ${textStyles.normalText}` })``;
-const VenueTicketsOnly = styled.span.attrs({ className: `${styles.venueTicketsOnly} ${textStyles.normalText}` })``;
-const CopiedMessage = styled.span.attrs({ className: textStyles.copiedMessage })``;
-
 export default function ShowCard({ show, copiedLink, onCopyMap }) {
   return (
-    <ShowCardContainer>
-      <ShowDateTime>
-          <ShowDate>{show.date}</ShowDate>
-          <ShowTime>{show.time}</ShowTime>
-      </ShowDateTime>
-      <ShowHeader>
-        <ShowDetails>
-          <VenueLink
+    <div className={styles.showCardContainer}>
+      <div className={styles.showDateTime}>
+          <p className={textStyles.headerText}>{show.date}</p>
+          <p className={textStyles.normalText}>{show.time}</p>
+      </div>
+      <div className={styles.showHeader}>
+        <div className={styles.showDetails}>
+          <a className={textStyles.headerLinkText}
             href={show.eventLink || "#"}
             target="_blank"
             rel="noopener noreferrer"
             title="View event details"
           >
             {show.venue}
-          </VenueLink>
+          </a>
           <div>
-            <LocationLink
+            <a className={textStyles.linkText}
               href={show.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               title="Open in Google Maps"
             >
               {show.location}
-            </LocationLink>
+            </a>
             {copiedLink === show.googleMapsUrl && (
-              <CopiedMessage>Map link copied!</CopiedMessage>
+              <span className={textStyles.copiedMessage}>Map link copied!</span>
             )}
           </div>
-        </ShowDetails>
+        </div>
         
-      </ShowHeader>
-      <ShowActions>
+      </div>
+      <div className={styles.showActions}>
         {show.ticketLink ? (
-          <TicketButton
+          <a className={`${buttonStyles.primaryButton} ${textStyles.normalText}`}
             href={show.ticketLink}
             target="_blank"
             rel="noopener noreferrer"
           >
             Get Tickets
-          </TicketButton>
+          </a>
         ) : (
-          <VenueTicketsOnly>
+          <span className={`${styles.venueTicketsOnly} ${textStyles.normalText}`}>
           Tickets available at venue
-          </VenueTicketsOnly>
+          </span>
         )}
-      </ShowActions>
-    </ShowCardContainer>
+      </div>
+    </div>
   );
 }

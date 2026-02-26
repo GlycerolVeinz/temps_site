@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu } from 'lucide-react';
 import Image from 'next/image';
-import styled from 'styled-components';
 
 import { ENV, EPS, SECTIONS } from '@/components/config';
 import {
@@ -17,19 +15,6 @@ import {
 import textStyles from '@/components/styles/globals/text.module.css';
 import pageStyles from '@/components/styles/module/Page.module.css';
 
-const Note = styled.p.attrs({ className: textStyles.noteText })``;
-const FooterText = styled.footer.attrs({ className: textStyles.footerText })``;
-const PageContainer = styled.div.attrs({ className: pageStyles.pageContainer })``;
-const MenuToggleButton = styled.button.attrs({ className: pageStyles.menuToggleButton })``;
-const MenuToggleIcon = styled.div.attrs({ className: pageStyles.menuToggleIcon })``;
-const MenuToggleLogo = styled.img.attrs({ className: pageStyles.menuToggleLogo })``;
-const LandingSection = styled.section.attrs({ className: pageStyles.landingSection })``;
-const BackgroundImage = styled(Image).attrs({ className: pageStyles.backgroundImage })``;
-const BackgroundImageWrapper = styled.div.attrs({ className: pageStyles.backgroundImageWrapper })``;
-
-const LandingContent = styled.div.attrs({ className: pageStyles.landingContent })``;
-const BandName = styled.h1.attrs({ className: `${textStyles.bandNameText} band-name-font` })``;
-const ContentSection = styled.section.attrs({ className: pageStyles.contentContainer })``;
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,19 +75,19 @@ export default function Home() {
   }
 
   return (
-    <PageContainer>
-      <MenuToggleButton onClick={() => setMenuOpen(true)}>
-        <MenuToggleIcon>
+    <div className={pageStyles.pageContainer}>
+      <button className={pageStyles.menuToggleButton} onClick={() => setMenuOpen(true)}>
+        <div className={pageStyles.menuToggleIcon}>
           {ENV.MENU_LOGO ? (
-            <MenuToggleLogo
+            <img className={pageStyles.menuToggleLogo}
               src={ENV.MENU_LOGO}
               alt="Menu"
             />
           ) : (
             <Menu size={24} className={pageStyles.menuToggleFallbackIcon} />
           )}
-        </MenuToggleIcon>
-      </MenuToggleButton>
+        </div>
+      </button>
 
       <NavigationMenu
         sections={[
@@ -114,27 +99,27 @@ export default function Home() {
         onClose={() => setMenuOpen(false)}
       />
 
-      <LandingSection id="landing" ref={landingRef}>
-        <BackgroundImageWrapper>
-        <BackgroundImage
+      <section className={pageStyles.landingSection} id="landing" ref={landingRef}>
+        <div className={pageStyles.backgroundImageWrapper}>
+        <Image className={pageStyles.backgroundImage}
           src={isPortrait ? ENV.BACKGROUND_IMAGE_PORTRAIT : ENV.BACKGROUND_IMAGE_LANDSCAPE}
           layout="fill"
           objectFit="cover"
           alt="Band Background"
         />
-        </BackgroundImageWrapper>
+        </div>
       
-        <LandingContent>
-          <BandName>Temporary</BandName>
-          <BandName>Friends</BandName>
-        </LandingContent>
-      </LandingSection>
+        <div className={pageStyles.landingContent}>
+          <h1 className={`${textStyles.bandNameText} band-name-font`}>Temporary</h1>
+          <h1 className={`${textStyles.bandNameText} band-name-font`}>Friends</h1>
+        </div>
+      </section>
 
 
-      <ContentSection>
+      <section className={pageStyles.contentContainer}>
         <SectionTitle id="streaming" title="Streaming Platforms"/>
         <PlatformsSection links={ENV.PLATFORMS.streaming} onCopy={copyToClipboard} copiedLink={copiedLink}/>
-        <Note>Note: Our music may be found on other platforms as well, but we didn't find them all. If you find us on a platform not listed here, please let us know!</Note>
+        <p className={textStyles.noteText}>Note: Our music may be found on other platforms as well, but we didn't find them all. If you find us on a platform not listed here, please let us know!</p>
 
         <SectionTitle id="shows" title="Upcoming Shows"/>
         <UpcomingShowsSection shows={ENV.PLATFORMS.shows}/>
@@ -148,8 +133,8 @@ export default function Home() {
         <SectionTitle id="bandmates" title="Band Members"/>
         <BandMembersSection members={ENV.BAND_MEMBERS} />
 
-        <FooterText>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</FooterText>
-      </ContentSection>
-    </PageContainer>
+        <footer className={textStyles.footerText}>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</footer>
+      </section>
+    </div>
   );
 }
