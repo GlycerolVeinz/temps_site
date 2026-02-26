@@ -9,9 +9,15 @@ export default function BandMemberCard({ member }) {
 
   return (
     <div className={styles.memberCardContainer} id={memberId}>
+  
       <div className={styles.memberImageWrapper}>
-        <img className={styles.memberImage} src={member.photo} alt={`${member.firstName} ${member.lastName}`} />
+        <img 
+          className={styles.memberImage} 
+          src={member.photoUrl} 
+          alt={`${member.firstName} ${member.lastName}`} 
+          />
       </div>
+      
       <div className={styles.memberInfo}>
         <h3 className={textStyles.headerText}>{member.firstName} {member.lastName}</h3>
         <p className={textStyles.normalTextSecondary}>{member.instrument}</p>
@@ -23,12 +29,13 @@ export default function BandMemberCard({ member }) {
           @{member.instagram}
         </a>
         <a className={textStyles.linkText}
-          href={`mailto:${member.contactEmail}`}
-          title={member.contactEmail}
+          href={`mailto:${member.email}`}
+          title={member.email}
         >
-          {member.contactEmail}
+          {member.email}
         </a>
       </div>
+
     </div>
   );
 }

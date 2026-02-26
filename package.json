@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.22.0",
     "lucide-react": "^0.503.0",
     "mongodb": "^6.20.0",
-    "next": "15.5.9",
+    "next": "^15.5.12",
+    "next-sanity": "^11.6.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.19"
+    "sanity": "^4.22.0",
+    "styled-components": "^6.3.11"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

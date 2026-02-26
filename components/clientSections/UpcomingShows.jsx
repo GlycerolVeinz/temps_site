@@ -12,7 +12,7 @@ export default function UpcomingShowsSection({ shows }) {
         <div className={styles.showsGrid}>
           {shows.map(show => (
             <ShowCard 
-              key={show.id} 
+              key={show._id} 
               show={show}
             />
           ))}

@@ -7,7 +7,7 @@ export default function MusicSection({ music }) {
     return (
         <section className={styles.musicSectionContainer}>
             {music.map((ep) => (
-                <MusicCard key={ep.title} ep={ep} /> // TODO change order of songs in split second
+                <MusicCard key={ep.title} ep={ep} />
             ))}
         </section>
     );

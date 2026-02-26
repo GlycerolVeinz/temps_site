@@ -12,7 +12,7 @@ export default function MusicCard({ ep }) {
       <div className={styles.musicImageGroup}>
         <div className={styles.musicImageContainer}>
           <img className={styles.musicImage}
-            src={ep.cover}
+            src={ep.coverUrl}
             alt={`${ep.title} Cover`}
           />
         </div>

@@ -1,13 +1,23 @@
-import { ENV } from '@/components/config';
-
+import { client } from '@/sanity/lib/client';
 import { BandMembersSection, SectionTitle } from '@/components/clientSections';
 
-export default function BandMates() {
+const BAND_MATES_QUERRY = `*[_type == "bandMember"]{
+    _id,
+    firstName,
+    lastName,
+    instrument,
+    instagram,
+    email,
+    "photoUrl": photo.asset->url
+}`
 
+export default async function BandMates() {
+    const bandMates = await client.fetch(BAND_MATES_QUERRY);
+    
     return (
         <div>
             <SectionTitle id="bandmates" title="Band Members" />
-            <BandMembersSection members={ENV.BAND_MEMBERS} />
+            <BandMembersSection members={bandMates} />
         </div>
     )
 }

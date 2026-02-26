@@ -1,15 +1,21 @@
+
 import React from 'react';
 import styles from '@/components/styles/module/Show.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
 
-export default function ShowCard({ show, copiedLink, onCopyMap }) {
+export default function ShowCard({ show }) {
+
+  console.log('Rendering ShowCard for show:', show);
+
   return (
     <div className={styles.showCardContainer}>
+      
       <div className={styles.showDateTime}>
-          <p className={textStyles.headerText}>{show.date}</p>
-          <p className={textStyles.normalText}>{show.time}</p>
+        <p className={textStyles.headerText}>{new Date(show.dateTime).toDateString()}</p>
+        <p className={textStyles.normalText}>{new Date(show.dateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</p>
       </div>
+
       <div className={styles.showHeader}>
         <div className={styles.showDetails}>
           <a className={textStyles.headerLinkText}
@@ -18,24 +24,21 @@ export default function ShowCard({ show, copiedLink, onCopyMap }) {
             rel="noopener noreferrer"
             title="View event details"
           >
-            {show.venue}
+            {show.eventName}
           </a>
           <div>
             <a className={textStyles.linkText}
-              href={show.googleMapsUrl}
+              href={show.googleMapsLink}
               target="_blank"
               rel="noopener noreferrer"
               title="Open in Google Maps"
             >
               {show.location}
             </a>
-            {copiedLink === show.googleMapsUrl && (
-              <span className={textStyles.copiedMessage}>Map link copied!</span>
-            )}
           </div>
         </div>
-        
       </div>
+
       <div className={styles.showActions}>
         {show.ticketLink ? (
           <a className={`${buttonStyles.primaryButton} ${textStyles.normalText}`}
@@ -47,10 +50,11 @@ export default function ShowCard({ show, copiedLink, onCopyMap }) {
           </a>
         ) : (
           <span className={`${styles.venueTicketsOnly} ${textStyles.normalText}`}>
-          Tickets available at venue
+            Tickets available at venue
           </span>
         )}
       </div>
+
     </div>
   );
 }

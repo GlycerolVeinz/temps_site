@@ -1,12 +1,20 @@
+import { client } from '@/sanity/lib/client';
+import { MusicSection, SectionTitle } from '@/components/clientSections';
 
-import { EPS } from '@/components/config';
+const MUSIC_QUERRY = `*[_type == "disc"]{
+    _id,
+    title,
+    "coverUrl": cover.asset->url,
+    songs
+}`
 
-export default function Music() {
+export default async function Music() {
+    const music = await client.fetch(MUSIC_QUERRY);
 
     return (
         <div>
             <SectionTitle id="music" title="Our Music" />
-            <MusicSection music={EPS} />
+            <MusicSection music={music} />
         </div>
     )
 }

@@ -6,6 +6,7 @@ import Streaming from './serverSections/streaming';
 import BandMates from './serverSections/bandMates';
 import Shows from './serverSections/shows';
 import Social from './serverSections/social';
+import Music from './serverSections/music';
 
 
 export default function Content() {
@@ -18,6 +19,8 @@ export default function Content() {
             <Shows/>
 
             <Social />
+
+            <Music />
 
             <BandMates />
 

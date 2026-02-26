@@ -8,9 +8,7 @@ import buttonStyles from '@/components/styles/globals/button.module.css';
 import { copyToClipboard } from '@/lib/clipboard';
 
 
-export default function PlatformCard({
-  platform
-}) {
+export default function PlatformCard({ platform }) {
 
   const handleCopy = (text) => copyToClipboard(text, setCopiedLink);
   const [copiedLink, setCopiedLink] = useState("");
