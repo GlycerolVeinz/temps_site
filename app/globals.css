@@ -84,11 +84,17 @@
   --text-warning: var(--colors-secondary-200);
 }
 
+
+html,
 body {
   margin: 0;
   padding: 0;
-  background: transparent;
+  background: var(--bg-primary);
+  min-height: 100%;
+  overscroll-behavior: none;
   font-family: var(--font-temps-regular);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .band-name-font {

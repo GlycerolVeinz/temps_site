@@ -5,7 +5,7 @@ import React from 'react';
 import pageStyles from '@/components/styles/module/Page.module.css';
 import { scrollToSection } from '@/lib/navigation';
 import { ENV, SECTIONS } from '@/components/config';
-import { NavigationMenu } from '@/components/sections';
+import { NavigationMenu } from '@/components/clientSections';
 
 export default function MenuButton() {
     const [menuOpen, setMenuOpen] = useState(false);

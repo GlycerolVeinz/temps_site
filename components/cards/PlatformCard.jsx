@@ -1,14 +1,21 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { Copy } from 'lucide-react';
 import styles from '@/components/styles/module/Platform.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 import buttonStyles from '@/components/styles/globals/button.module.css';
+import { copyToClipboard } from '@/lib/clipboard';
+
 
 export default function PlatformCard({
-  platform,
-  onCopy,
-  copiedLink
+  platform
 }) {
+
+  const handleCopy = (text) => copyToClipboard(text, setCopiedLink);
+  const [copiedLink, setCopiedLink] = useState("");
+    
+
   return (
     <div className={styles.platformCardContainer} id={platform.id}>
       <div className={styles.platformHeader}>
@@ -30,7 +37,7 @@ export default function PlatformCard({
           {platform.linkText}
         </a>
         <div className={styles.platformActions}>
-          <button className={`${buttonStyles.copyButton} ${textStyles.normalText}`} onClick={() => onCopy(platform.url)}>
+          <button className={`${buttonStyles.copyButton} ${textStyles.normalText}`} onClick={() => handleCopy(platform.url)}>
             <Copy size={16} />
           </button>
         </div>
