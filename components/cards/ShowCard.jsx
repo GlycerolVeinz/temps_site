@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styles from '@/components/styles/module/Show.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';

@@ -1,5 +1,4 @@
 import { client } from '@/sanity/lib/client';
-
 import { UpcomingShowsSection, SectionTitle } from '@/components/clientSections';
 
 const SHOWS_QUERRY = `*[_type == "show"]{
