@@ -138,16 +138,6 @@
         }
       ],
       "shows": [
-        {
-          "id": 1,
-          "date": "21. feb 2026",
-          "time": "19:00",
-          "eventLink" : "https://www.facebook.com/events/927350383568873?acontext=%7B%22event_action_history%22%3A[]%7D",
-          "venue": "Matouš's and Matty's Birthday Concert",
-          "googleMapsUrl": "https://maps.app.goo.gl/5DgMDcB2DtpBjBZG8",
-          "location" : "Kulturní centrum Kaštan, Prague, Czech Republic",
-          "ticketLink": null
-        }
       ]
     }
   },
