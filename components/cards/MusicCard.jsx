@@ -1,10 +1,11 @@
 import React from 'react';
+import { getEpId } from '@/lib/ids';
 import styles from '@/components/styles/module/Music.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 
 
 export default function MusicCard({ ep }) {
-  const epId = `ep-${ep.title.toLowerCase().replace(/\s+/g, '-')}`;
+  const epId = getEpId(ep);
 
   return (
     <div className={styles.musicCardContainer} id={epId}>

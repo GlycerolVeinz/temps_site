@@ -1,10 +1,11 @@
 import React from 'react';
+import { getMemberId } from '@/lib/ids';
 import styles from '@/components/styles/module/BandMember.module.css';
 import textStyles from '@/components/styles/globals/text.module.css';
 
 
 export default function BandMemberCard({ member }) {
-  const memberId = `member-${member.firstName.toLowerCase()}-${member.lastName.toLowerCase()}`;
+  const memberId = getMemberId(member);
 
   return (
     <div className={styles.memberCardContainer} id={memberId}>
