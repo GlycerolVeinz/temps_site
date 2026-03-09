@@ -24,7 +24,10 @@ export default function Content() {
 
             <BandMates />
 
-            <footer className={textStyles.footerText}>© {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.</footer>
+            <footer className={textStyles.footerText}>
+                © {new Date().getFullYear()} {ENV.BAND_NAME}. All rights reserved.<br/>
+                <a className={textStyles.footerText} href='/studio'>Studio</a>
+            </footer>
         </section>
     )
 }
