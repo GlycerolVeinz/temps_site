@@ -9,7 +9,7 @@ const MUSIC_QUERRY = `*[_type == "disc"]{
 }`
 
 export default async function Music() {
-    const music = await client.fetch(MUSIC_QUERRY);
+    const music = await client.fetch(MUSIC_QUERRY, {}, { cache: 'no-store' });
 
     return (
         <div>

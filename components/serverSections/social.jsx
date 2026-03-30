@@ -9,7 +9,7 @@ const SOCIAL_QUERRY = `*[_type == "social"]{
 }`
 
 export default async function Social() {
-    const socialLinks = await client.fetch(SOCIAL_QUERRY);
+    const socialLinks = await client.fetch(SOCIAL_QUERRY, {}, { cache: 'no-store' });
     socialLinks.sort((a, b) => a.title.localeCompare(b.title));
 
     return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { ENV } from '@/components/config';
 import { useOrientation } from '@/lib/hooks/useOrientation';
 import textStyles from '@/components/styles/globals/text.module.css';
