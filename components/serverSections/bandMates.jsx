@@ -12,7 +12,7 @@ const BAND_MATES_QUERRY = `*[_type == "bandMember"]{
 }`
 
 export default async function BandMates() {
-    const bandMates = await client.fetch(BAND_MATES_QUERRY);
+    const bandMates = await client.fetch(BAND_MATES_QUERRY, {}, { cache: 'no-store' });
     
     return (
         <div>

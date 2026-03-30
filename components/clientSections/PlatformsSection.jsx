@@ -8,8 +8,9 @@ export default function PlatformsSection({ links }) {
   return (
     <section className={styles.platformContainer}>
         {links.map(link => (
+
           <PlatformCard
-            key={link.id}
+            key={link._id}
             platform={link}
           />
         ))}

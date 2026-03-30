@@ -5,8 +5,6 @@ import buttonStyles from '@/components/styles/globals/button.module.css';
 
 export default function ShowCard({ show }) {
 
-  console.log('Rendering ShowCard for show:', show);
-
   return (
     <div className={styles.showCardContainer}>
       

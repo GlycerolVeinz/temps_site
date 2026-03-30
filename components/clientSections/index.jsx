@@ -1,5 +1,4 @@
 
-export { default as PlatformStreamingCard } from './LinksSection';
 export { default as BandMembersSection } from './BandMembersSection';
 export { default as MusicSection } from './MusicSection';
 export { default as ShowCard } from '../cards/ShowCard';

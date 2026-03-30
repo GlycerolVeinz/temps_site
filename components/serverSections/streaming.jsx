@@ -11,7 +11,7 @@ const STREAMING_QUERRY = `*[_type == "platform"]{
 }`
 
 export default async function Streaming() {
-    const streamingLinks = await client.fetch(STREAMING_QUERRY);
+    const streamingLinks = await client.fetch(STREAMING_QUERRY, {}, { cache: 'no-store' });
     streamingLinks.sort((a, b) => a.title.localeCompare(b.title));
 
     return (
