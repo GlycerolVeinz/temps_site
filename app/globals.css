@@ -85,7 +85,17 @@
 }
 
 
-html,
+html{
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  min-height: 100%;
+  font-family: var(--font-temps-regular);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
