@@ -1,5 +1,6 @@
-import { client } from '@/sanity/lib/client';
-import { MusicSection, SectionTitle } from '@/components/clientSections';
+import { fetchSanityData } from '@/sanity/lib/fetchData';
+import SectionWrapper from './SectionWrapper';
+import { MusicSection } from '@/components/clientSections';
 
 const MUSIC_QUERRY = `*[_type == "disc"]{
     _id,
@@ -9,12 +10,11 @@ const MUSIC_QUERRY = `*[_type == "disc"]{
 }`
 
 export default async function Music() {
-    const music = await client.fetch(MUSIC_QUERRY, {}, { cache: 'no-store' });
+    const music = await fetchSanityData(MUSIC_QUERRY);
 
     return (
-        <div>
-            <SectionTitle id="music" title="Our Music" />
+        <SectionWrapper id="music" title="Our Music">
             <MusicSection music={music} />
-        </div>
+        </SectionWrapper>
     )
 }

@@ -1,5 +1,6 @@
-import { client } from '@/sanity/lib/client';
-import { BandMembersSection, SectionTitle } from '@/components/clientSections';
+import { fetchSanityData } from '@/sanity/lib/fetchData';
+import SectionWrapper from './SectionWrapper';
+import { BandMembersSection } from '@/components/clientSections';
 
 const BAND_MATES_QUERRY = `*[_type == "bandMember"]{
     _id,
@@ -12,12 +13,11 @@ const BAND_MATES_QUERRY = `*[_type == "bandMember"]{
 }`
 
 export default async function BandMates() {
-    const bandMates = await client.fetch(BAND_MATES_QUERRY, {}, { cache: 'no-store' });
+    const bandMates = await fetchSanityData(BAND_MATES_QUERRY);
     
     return (
-        <div>
-            <SectionTitle id="bandmates" title="Band Members" />
+        <SectionWrapper id="bandmates" title="Band Members">
             <BandMembersSection members={bandMates} />
-        </div>
+        </SectionWrapper>
     )
 }

@@ -1,5 +1,6 @@
-import { client } from '@/sanity/lib/client';
-import { PlatformsSection, SectionTitle } from '@/components/clientSections';
+import { fetchSanityData } from '@/sanity/lib/fetchData';
+import SectionWrapper from './SectionWrapper';
+import { PlatformsSection } from '@/components/clientSections';
 
 const SOCIAL_QUERRY = `*[_type == "social"]{
     _id,
@@ -9,13 +10,12 @@ const SOCIAL_QUERRY = `*[_type == "social"]{
 }`
 
 export default async function Social() {
-    const socialLinks = await client.fetch(SOCIAL_QUERRY, {}, { cache: 'no-store' });
+    const socialLinks = await fetchSanityData(SOCIAL_QUERRY);
     socialLinks.sort((a, b) => a.title.localeCompare(b.title));
 
     return (
-        <div>
-            <SectionTitle id="social" title="Social Media" />
+        <SectionWrapper id="social" title="Social Media">
             <PlatformsSection links={socialLinks} />
-        </div>
+        </SectionWrapper>
     )
 }

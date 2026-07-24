@@ -1,5 +1,6 @@
-import { client } from '@/sanity/lib/client';
-import { UpcomingShowsSection, SectionTitle } from '@/components/clientSections';
+import { fetchSanityData } from '@/sanity/lib/fetchData';
+import SectionWrapper from './SectionWrapper';
+import { UpcomingShowsSection } from '@/components/clientSections';
 
 const SHOWS_QUERRY = `*[_type == "show"]{
     _id,
@@ -12,15 +13,14 @@ const SHOWS_QUERRY = `*[_type == "show"]{
 }`
 
 export default async function Shows() {
-    const allShows = await client.fetch(SHOWS_QUERRY, {}, { cache: 'no-store' });
+    const allShows = await fetchSanityData(SHOWS_QUERRY);
     const shows = allShows
         .filter(show => new Date(show.dateTime) >= new Date())
         .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
 
     return (
-        <div>
-            <SectionTitle id="shows" title="Upcoming Shows" />
+        <SectionWrapper id="shows" title="Upcoming Shows">
             <UpcomingShowsSection shows={shows} />
-        </div>
+        </SectionWrapper>
     )
 }
