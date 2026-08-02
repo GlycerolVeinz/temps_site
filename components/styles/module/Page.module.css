@@ -59,8 +59,10 @@
 .backgroundImage {
     position: absolute;
     inset: 0;
-    background-position: center;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     z-index: 1;
     filter: grayscale(100%) contrast(110%) blur(2px) brightness(0.9);
 }
@@ -77,8 +79,150 @@
 }
 
 .contentContainer {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-4);
+}
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-bottom: var(--space-8);
+}
+
+.heroSection {
+    height: 100dvh;
+    position: relative;
+    margin-top: -73px; /* Offset for sticky header height */
+}
+
+.heroContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    gap: var(--space-4);
+}
+
+.latestReleaseSection {
+    margin: 0;
+    align-self: start;
+}
+
+.nextShowSection {
+    margin: 0;
+    align-self: start;
+}
+
+.homeHighlightsGrid {
+    display: grid;
+    gap: var(--space-8);
+    grid-template-columns: 1fr;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+    box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+    .homeHighlightsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.latestReleaseCard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    background-color: var(--bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.latestReleaseCard:hover {
+    transform: scale(1.02);
+}
+
+.latestReleaseImageWrapper {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.latestReleaseImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.nextShowHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-4);
+}
+
+.skeletonCard {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+}
+
+.skeletonCard::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    to {
+        left: 200%;
+    }
+}
+
+.skeletonImage {
+    width: 100%;
+    height: 200px;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+}
+
+.skeletonTextWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.skeletonText {
+    height: 1.5rem;
+    width: 60%;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-sm);
+}
+
+.skeletonTextSmall {
+    height: 1rem;
+    width: 40%;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-sm);
 }

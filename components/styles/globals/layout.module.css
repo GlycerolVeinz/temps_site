@@ -1,0 +1,12 @@
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-4);
+  box-sizing: border-box;
+}
+
+.cardGrid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min, 20rem)), 1fr));
+}

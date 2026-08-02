@@ -1,85 +1,134 @@
 
 .platformContainer {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(max(50% - 0.5rem, min(100%, 20rem)), 1fr));
-    gap: 1rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
     width: 100%;
+}
+
+@media (max-width: 576px) {
+    .platformContainer {
+        margin-top: var(--space-4);
+        margin-bottom: var(--space-4);
+    }
+    .platformCardContainer {
+        padding: var(--space-3) !important;
+    }
 }
 
 .platformCardContainer {
     background-color: var(--bg-secondary);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
     position: relative;
     min-width: 0;
     box-sizing: border-box;
     overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-bottom: var(--space-1);
+    height: 100%;
+}
+
+.platformCardContainer:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.platformTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.platformIcon {
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    filter: grayscale(1) sepia(1) saturate(5) hue-rotate(345deg) brightness(0.9); /* Monotone brand orange */
+    width: 32px;
+    height: 32px;
+    transition: filter 0.2s ease-in-out;
+}
+
+.platformCardContainer:hover .platformIcon {
+    filter: grayscale(0) sepia(0) saturate(1) hue-rotate(0deg) brightness(1); /* Smooth transition back to original colors */
+}
+
+.platformIconFallback {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-highlight);
+    color: var(--text-emphasis);
+    font-weight: bold;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
 }
 
 .platformHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-4);
 }
 
 .platformContent {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-4);
+    margin-top: auto;
+    width: 100%;
 }
 
 .platformActions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2); /* 0.5rem gap */
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.actionBtn {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-button) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.actionBtn:hover {
+    background-color: var(--bg-hover-accent) !important;
+    color: var(--colors-neutral-050) !important;
 }
 
 .warningBadge {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
     background-color: var(--bg-warning);
-    padding: 0.27rem;
-    border-radius: 5rem;
-    cursor: help;
-    z-index: 5;
-}
-
-.warningBadge::after {
-    content: "This platform may mix our music with other artists using the same name.";
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 0.5rem);
-    background-color: var(--bg-primary);
-    color: var(--text-warning);
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--text-warning);
-
-    max-width: min(20rem, calc(100vw - 3rem));
-    width: max-content;
-    white-space: normal;
-    word-wrap: break-word;
-    line-height: 1.4;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 1000;
-}
-
-.warningBadge:hover::after,
-.warningBadge:active::after {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    padding: 0.2rem var(--space-2);
+    border-radius: var(--radius-full);
 }
 
 .copiedBadge {
-    margin-top: 0.25rem;
+    margin-top: var(--space-2);
     display: block;
     animation: fadeIn 0.3s ease-in;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

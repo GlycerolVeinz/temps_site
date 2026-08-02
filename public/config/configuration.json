@@ -3,7 +3,7 @@
     "BAND_NAME": "Temporary Friends",
     "BACKGROUND_IMAGE_PORTRAIT": "/group_images/background_portrait.webp",
     "BACKGROUND_IMAGE_LANDSCAPE": "/group_images/background_landscape.webp",
-    "MENU_LOGO": "group_images/logo.svg"
+    "MENU_LOGO": "/group_images/logo.svg"
   },
   
   "SECTIONS": [
