@@ -1,23 +1,4 @@
-@font-face {
-  font-family: 'TempsFont';
-  src: url('/fonts/temps_font.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'TempsFontRegular';
-  src: url('/fonts/temps_font_regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --font-temps: 'TempsFont', Arial, Helvetica, sans-serif;
-  --font-temps-regular: 'TempsFontRegular', Arial, Helvetica, sans-serif;
-
   --colors-brand-050 : #fdf1eb ;
   --colors-brand-100 : #fbe2d5 ;
   --colors-brand-200 : #f9d2be ;
@@ -74,11 +55,31 @@
   --border-accent: var(--colors-brand-500);
   
   /* Text colors */
-  --text-primary: var(--colors-secondary-300);
-  --text-secondary: var(--colors-secondary-300);
+  --text-primary: var(--colors-secondary-400);
+  --text-emphasis: var(--colors-secondary-300);
   --text-muted: var(--colors-secondary-400);
-  --text-link: var(--colors-brand-600);
+  --text-link: var(--colors-brand-400);
   --text-hover: var(--colors-brand-200);
   --text-success: var(--colors-success);
   --text-warning: var(--colors-secondary-200);
+
+  /* Fluid type */
+  --step--1: clamp(0.833rem, 0.80rem + 0.16vw, 0.9rem);
+  --step-0:  clamp(1rem,     0.96rem + 0.20vw, 1.125rem);
+  --step-1:  clamp(1.2rem,   1.13rem + 0.35vw, 1.406rem);
+  --step-2:  clamp(1.44rem,  1.33rem + 0.55vw, 1.758rem);
+  --step-3:  clamp(1.728rem, 1.55rem + 0.89vw, 2.4rem);
+  --step-4:  clamp(2.074rem, 1.80rem + 1.37vw, 3.2rem);
+  --display: clamp(3rem,     18vw,              12rem);
+
+  /* Space */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem;  --space-6: 2rem;   --space-7: 3rem;    --space-8: 4rem;
+
+  /* Other */
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-full: 9999px;
+  --focus-ring: 2px solid var(--colors-brand-400);
+  --focus-offset: 2px;
+  --measure: 72ch;
+  --container-max: 90rem;
 }

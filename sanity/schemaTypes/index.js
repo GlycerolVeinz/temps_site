@@ -1,4 +1,4 @@
-import { bandMember } from "./bandMemeber.js";
+import { bandMember } from "./bandMember.js";
 import { show } from "./show.js";
 import { platform } from "./platform.js";
 import { disc } from "./disc.js";

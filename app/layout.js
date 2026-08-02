@@ -1,4 +1,17 @@
+import localFont from 'next/font/local';
 import "./globals.css";
+
+const tempsFont = localFont({
+  src: '../public/fonts/temps_font.woff2',
+  display: 'swap',
+  variable: '--font-temps',
+});
+
+const tempsFontRegular = localFont({
+  src: '../public/fonts/temps_font_regular.woff2',
+  display: 'swap',
+  variable: '--font-temps-regular',
+});
 
 export const metadata = {
   metadataBase: new URL("https://temporaryfriends.fun"),
@@ -90,34 +103,24 @@ export const metadata = {
   }
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0f0f17',
+};
+
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Additional meta tags for better mobile and app experience */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        
-        {/* Apple-specific meta tags */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Temporary Friends" />
-        
-        {/* Microsoft/Windows specific */}
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        
-        {/* Additional favicon links for maximum compatibility */}
-        <link rel="icon" type="image/x-icon" href="/group_images/non_site_images/favicons/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/group_images/non_site_images/favicons/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/group_images/non_site_images/favicons/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/group_images/non_site_images/favicons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/group_images/non_site_images/favicons/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/group_images/non_site_images/favicons/android-chrome-512x512.png" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
-      <body>
-        {children}
+    <html lang="en" className={`${tempsFont.variable} ${tempsFontRegular.variable}`}>
+      <body suppressHydrationWarning>
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

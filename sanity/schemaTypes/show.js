@@ -45,6 +45,12 @@ export const show = defineType({
             title: 'Ticket Link',
             type: 'url',
             description: 'Link to purchase tickets for the show',
+        }),
+        defineField({
+            name: 'poster',
+            title: 'Poster',
+            type: 'image',
+            options: { hotspot: true },
         })
     ],
 

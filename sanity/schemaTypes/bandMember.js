@@ -47,6 +47,16 @@ export const bandMember = defineType({
             type: 'string',
             validation: (rule) => rule.required().email().warning('Please enter a valid email address'),
         }),
+        defineField({
+            name: 'bio',
+            title: 'Bio',
+            type: 'text',
+        }),
+        defineField({
+            name: 'order',
+            title: 'Order',
+            type: 'number',
+        }),
     ],
 
     preview: {
